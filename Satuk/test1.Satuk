@@ -1,5 +1,7 @@
-program {
-    display(3,2+2,4*5,5);
-    return 1;
-    }
+program 
+{
+    display("wynik dzialania to");
+    display(2+3*4);
+    return;
+}
     

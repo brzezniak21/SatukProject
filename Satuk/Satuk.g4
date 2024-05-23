@@ -47,6 +47,7 @@ FLOAT   : ('0' ',' [0-9]+ | [1-9][0-9]* ',' [0-9]*) | ('0' ',' [0-9]*);
 CHAR    : '\''[a-zA-Z0-9]'\'';
 VARIABLE : [a-zA-Z]+[0-9]*;
 
+print: 'display' LPAREN result=print_content RPAREN SEMICOLON #display;
 
 assignment: (assign_char | assign_string | assign_float_constant | assign_bool | assign_int_ar | assign_int_constant | assign_float_ar | assign_bool_logical | assignment_class | assign_bool_dynamic | assign_char_dynamic | assign_float_dynamic | assign_int_dynamic | assign_string_dynamic | assignment_function) SEMICOLON;
 
@@ -120,9 +121,9 @@ if_statement: 'if' LPAREN logical_instructions RPAREN LBRACE prog RBRACE ('else 
 
 loop: 'loop' LPAREN logical_instructions RPAREN LBRACE prog RBRACE;
 
-print: 'display' LPAREN result=print_content RPAREN SEMICOLON #display;
+//print: 'display' LPAREN result=print_content RPAREN SEMICOLON #display;
 
-print_content : (arithmetics | logical_instructions | VARIABLE | STRING | CHAR | INT | FLOAT | BOOL);
+print_content : (STRING  | VARIABLE | CHAR | INT | FLOAT | BOOL | arithmetics | logical_instructions);
 
 
 functions: function | constructor;

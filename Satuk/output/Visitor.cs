@@ -8,7 +8,7 @@ public class Visitor : SatukBaseVisitor<object>
 
     public override object VisitPrint_content(SatukParser.Print_contentContext context)
     {
-        var visitChildren =  VisitChildren(context);
+        var visitChildren =  VisitChildren(context) ?? context.GetText();
         Console.WriteLine(visitChildren.ToString()?.Replace("\"","").Replace('\'','\''));
         return visitChildren;
     }
