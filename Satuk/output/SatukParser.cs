@@ -44,32 +44,18 @@ public partial class SatukParser : Parser {
 		DIV=41, MOD=42, ADD_ASSIGN=43, SUB_ASSIGN=44, MUL_ASSIGN=45, DIV_ASSIGN=46, 
 		WS=47, INT=48, STRING=49, BOOL=50, FLOAT=51, CHAR=52, VARIABLE=53;
 	public const int
-		RULE_program = 0, RULE_prog = 1, RULE_print = 2, RULE_assignment = 3, 
-		RULE_assign_bool = 4, RULE_assign_bool_logical = 5, RULE_assign_bool_dynamic = 6, 
-		RULE_assign_string = 7, RULE_assign_string_dynamic = 8, RULE_assign_char = 9, 
-		RULE_assign_char_dynamic = 10, RULE_assign_int_constant = 11, RULE_assign_int_ar = 12, 
-		RULE_assign_int_dynamic = 13, RULE_assign_float_constant = 14, RULE_assign_float_dynamic = 15, 
-		RULE_assign_float_ar = 16, RULE_assignment_class = 17, RULE_assignment_function = 18, 
-		RULE_arithmetics = 19, RULE_arithmetics_int = 20, RULE_arithmetics_float = 21, 
-		RULE_mutators = 22, RULE_int_inc = 23, RULE_float_inc = 24, RULE_int_dec = 25, 
-		RULE_float_dec = 26, RULE_variable_inc = 27, RULE_variable_dec = 28, RULE_logical_instructions = 29, 
-		RULE_logical_bool = 30, RULE_logical_numeric = 31, RULE_logical_text = 32, 
-		RULE_logical_var = 33, RULE_if_statement = 34, RULE_loop = 35, RULE_print_content = 36, 
-		RULE_functions = 37, RULE_function = 38, RULE_constructor = 39, RULE_return = 40, 
-		RULE_class = 41, RULE_execute_function = 42, RULE_void_function = 43, 
-		RULE_int_function = 44, RULE_float_function = 45, RULE_string_function = 46, 
-		RULE_char_function = 47, RULE_bool_function = 48, RULE_variable_function = 49, 
-		RULE_void_return = 50, RULE_int_return = 51, RULE_float_return = 52, RULE_string_return = 53, 
-		RULE_char_return = 54, RULE_bool_return = 55, RULE_variable_return = 56;
+		RULE_program = 0, RULE_prog = 1, RULE_print = 2, RULE_print_content = 3, 
+		RULE_assignment = 4, RULE_assignment_function = 5, RULE_arithmetics = 6, 
+		RULE_mutators = 7, RULE_logical_instructions = 8, RULE_if_statement = 9, 
+		RULE_loop = 10, RULE_functions = 11, RULE_function = 12, RULE_constructor = 13, 
+		RULE_return = 14, RULE_class = 15, RULE_execute_function = 16, RULE_void_function = 17, 
+		RULE_int_function = 18, RULE_float_function = 19, RULE_string_function = 20, 
+		RULE_char_function = 21, RULE_bool_function = 22, RULE_variable_function = 23, 
+		RULE_void_return = 24, RULE_int_return = 25, RULE_float_return = 26, RULE_string_return = 27, 
+		RULE_char_return = 28, RULE_bool_return = 29, RULE_variable_return = 30;
 	public static readonly string[] ruleNames = {
-		"program", "prog", "print", "assignment", "assign_bool", "assign_bool_logical", 
-		"assign_bool_dynamic", "assign_string", "assign_string_dynamic", "assign_char", 
-		"assign_char_dynamic", "assign_int_constant", "assign_int_ar", "assign_int_dynamic", 
-		"assign_float_constant", "assign_float_dynamic", "assign_float_ar", "assignment_class", 
-		"assignment_function", "arithmetics", "arithmetics_int", "arithmetics_float", 
-		"mutators", "int_inc", "float_inc", "int_dec", "float_dec", "variable_inc", 
-		"variable_dec", "logical_instructions", "logical_bool", "logical_numeric", 
-		"logical_text", "logical_var", "if_statement", "loop", "print_content", 
+		"program", "prog", "print", "print_content", "assignment", "assignment_function", 
+		"arithmetics", "mutators", "logical_instructions", "if_statement", "loop", 
 		"functions", "function", "constructor", "return", "class", "execute_function", 
 		"void_function", "int_function", "float_function", "string_function", 
 		"char_function", "bool_function", "variable_function", "void_return", 
@@ -177,43 +163,43 @@ public partial class SatukParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 117;
+			State = 65;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==T__12) {
 				{
 				{
-				State = 114;
+				State = 62;
 				@class();
 				}
 				}
-				State = 119;
+				State = 67;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 123;
+			State = 71;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254757624L) != 0)) {
 				{
 				{
-				State = 120;
+				State = 68;
 				functions();
 				}
 				}
-				State = 125;
+				State = 73;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 126;
+			State = 74;
 			Match(T__0);
-			State = 127;
+			State = 75;
 			Match(LBRACE);
-			State = 128;
+			State = 76;
 			prog();
-			State = 129;
+			State = 77;
 			@return();
-			State = 130;
+			State = 78;
 			Match(RBRACE);
 			}
 		}
@@ -259,6 +245,12 @@ public partial class SatukParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public Execute_functionContext execute_function(int i) {
 			return GetRuleContext<Execute_functionContext>(i);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public MutatorsContext[] mutators() {
+			return GetRuleContexts<MutatorsContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public MutatorsContext mutators(int i) {
+			return GetRuleContext<MutatorsContext>(i);
+		}
 		public ProgContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -290,47 +282,53 @@ public partial class SatukParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 139;
+			State = 88;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254745852L) != 0)) {
 				{
-				State = 137;
+				State = 86;
 				ErrorHandler.Sync(this);
 				switch ( Interpreter.AdaptivePredict(TokenStream,2,Context) ) {
 				case 1:
 					{
-					State = 132;
+					State = 80;
 					assignment();
 					}
 					break;
 				case 2:
 					{
-					State = 133;
+					State = 81;
 					if_statement();
 					}
 					break;
 				case 3:
 					{
-					State = 134;
+					State = 82;
 					loop();
 					}
 					break;
 				case 4:
 					{
-					State = 135;
+					State = 83;
 					print();
 					}
 					break;
 				case 5:
 					{
-					State = 136;
+					State = 84;
 					execute_function();
+					}
+					break;
+				case 6:
+					{
+					State = 85;
+					mutators();
 					}
 					break;
 				}
 				}
-				State = 141;
+				State = 90;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
@@ -394,16 +392,278 @@ public partial class SatukParser : Parser {
 			_localctx = new DisplayContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 142;
+			State = 91;
 			Match(T__1);
-			State = 143;
+			State = 92;
 			Match(LPAREN);
-			State = 144;
+			State = 93;
 			((DisplayContext)_localctx).result = print_content();
-			State = 145;
+			State = 94;
 			Match(RPAREN);
-			State = 146;
+			State = 95;
 			Match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			ErrorHandler.ReportError(this, re);
+			ErrorHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
+	public partial class Print_contentContext : ParserRuleContext {
+		public Print_contentContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_print_content; } }
+	 
+		public Print_contentContext() { }
+		public virtual void CopyFrom(Print_contentContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class Print_boolContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOL() { return GetToken(SatukParser.BOOL, 0); }
+		public Print_boolContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_bool(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_bool(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_bool(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class Print_intContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
+		public Print_intContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_int(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_int(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_int(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class DisplayStringContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(SatukParser.STRING, 0); }
+		public DisplayStringContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterDisplayString(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitDisplayString(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDisplayString(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class Print_charContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHAR() { return GetToken(SatukParser.CHAR, 0); }
+		public Print_charContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_char(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_char(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_char(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class Print_arithmeticsContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
+		}
+		public Print_arithmeticsContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_arithmetics(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_arithmetics(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_arithmetics(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class Print_variableContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		public Print_variableContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_variable(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_variable(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_variable(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class Print_logicalInstructionsContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions() {
+			return GetRuleContext<Logical_instructionsContext>(0);
+		}
+		public Print_logicalInstructionsContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_logicalInstructions(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_logicalInstructions(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_logicalInstructions(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class Print_floatContext : Print_contentContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
+		public Print_floatContext(Print_contentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterPrint_float(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitPrint_float(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrint_float(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public Print_contentContext print_content() {
+		Print_contentContext _localctx = new Print_contentContext(Context, State);
+		EnterRule(_localctx, 6, RULE_print_content);
+		try {
+			State = 105;
+			ErrorHandler.Sync(this);
+			switch ( Interpreter.AdaptivePredict(TokenStream,4,Context) ) {
+			case 1:
+				_localctx = new DisplayStringContext(_localctx);
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 97;
+				Match(STRING);
+				}
+				break;
+			case 2:
+				_localctx = new Print_variableContext(_localctx);
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 98;
+				Match(VARIABLE);
+				}
+				break;
+			case 3:
+				_localctx = new Print_charContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 99;
+				Match(CHAR);
+				}
+				break;
+			case 4:
+				_localctx = new Print_intContext(_localctx);
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 100;
+				Match(INT);
+				}
+				break;
+			case 5:
+				_localctx = new Print_floatContext(_localctx);
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 101;
+				Match(FLOAT);
+				}
+				break;
+			case 6:
+				_localctx = new Print_boolContext(_localctx);
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 102;
+				Match(BOOL);
+				}
+				break;
+			case 7:
+				_localctx = new Print_arithmeticsContext(_localctx);
+				EnterOuterAlt(_localctx, 7);
+				{
+				State = 103;
+				arithmetics(0);
+				}
+				break;
+			case 8:
+				_localctx = new Print_logicalInstructionsContext(_localctx);
+				EnterOuterAlt(_localctx, 8);
+				{
+				State = 104;
+				logical_instructions(0);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -418,408 +678,50 @@ public partial class SatukParser : Parser {
 	}
 
 	public partial class AssignmentContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_charContext assign_char() {
-			return GetRuleContext<Assign_charContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_stringContext assign_string() {
-			return GetRuleContext<Assign_stringContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_float_constantContext assign_float_constant() {
-			return GetRuleContext<Assign_float_constantContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_boolContext assign_bool() {
-			return GetRuleContext<Assign_boolContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_int_arContext assign_int_ar() {
-			return GetRuleContext<Assign_int_arContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_int_constantContext assign_int_constant() {
-			return GetRuleContext<Assign_int_constantContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_float_arContext assign_float_ar() {
-			return GetRuleContext<Assign_float_arContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_bool_logicalContext assign_bool_logical() {
-			return GetRuleContext<Assign_bool_logicalContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assignment_classContext assignment_class() {
-			return GetRuleContext<Assignment_classContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_bool_dynamicContext assign_bool_dynamic() {
-			return GetRuleContext<Assign_bool_dynamicContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_char_dynamicContext assign_char_dynamic() {
-			return GetRuleContext<Assign_char_dynamicContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_float_dynamicContext assign_float_dynamic() {
-			return GetRuleContext<Assign_float_dynamicContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_int_dynamicContext assign_int_dynamic() {
-			return GetRuleContext<Assign_int_dynamicContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assign_string_dynamicContext assign_string_dynamic() {
-			return GetRuleContext<Assign_string_dynamicContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Assignment_functionContext assignment_function() {
-			return GetRuleContext<Assignment_functionContext>(0);
-		}
 		public AssignmentContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_assignment; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterAssignment(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitAssignment(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitAssignment(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public AssignmentContext assignment() {
-		AssignmentContext _localctx = new AssignmentContext(Context, State);
-		EnterRule(_localctx, 6, RULE_assignment);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 163;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,4,Context) ) {
-			case 1:
-				{
-				State = 148;
-				assign_char();
-				}
-				break;
-			case 2:
-				{
-				State = 149;
-				assign_string();
-				}
-				break;
-			case 3:
-				{
-				State = 150;
-				assign_float_constant();
-				}
-				break;
-			case 4:
-				{
-				State = 151;
-				assign_bool();
-				}
-				break;
-			case 5:
-				{
-				State = 152;
-				assign_int_ar();
-				}
-				break;
-			case 6:
-				{
-				State = 153;
-				assign_int_constant();
-				}
-				break;
-			case 7:
-				{
-				State = 154;
-				assign_float_ar();
-				}
-				break;
-			case 8:
-				{
-				State = 155;
-				assign_bool_logical();
-				}
-				break;
-			case 9:
-				{
-				State = 156;
-				assignment_class();
-				}
-				break;
-			case 10:
-				{
-				State = 157;
-				assign_bool_dynamic();
-				}
-				break;
-			case 11:
-				{
-				State = 158;
-				assign_char_dynamic();
-				}
-				break;
-			case 12:
-				{
-				State = 159;
-				assign_float_dynamic();
-				}
-				break;
-			case 13:
-				{
-				State = 160;
-				assign_int_dynamic();
-				}
-				break;
-			case 14:
-				{
-				State = 161;
-				assign_string_dynamic();
-				}
-				break;
-			case 15:
-				{
-				State = 162;
-				assignment_function();
-				}
-				break;
-			}
-			State = 165;
-			Match(SEMICOLON);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_boolContext : ParserRuleContext {
-		public Assign_boolContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_bool; } }
 	 
-		public Assign_boolContext() { }
-		public virtual void CopyFrom(Assign_boolContext context) {
+		public AssignmentContext() { }
+		public virtual void CopyFrom(AssignmentContext context) {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class BoolAssContext : Assign_boolContext {
+	public partial class VarDynAssContext : AssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOL() { return GetToken(SatukParser.BOOL, 0); }
-		public BoolAssContext(Assign_boolContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(SatukParser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHAR() { return GetToken(SatukParser.CHAR, 0); }
+		public VarDynAssContext(AssignmentContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterBoolAss(this);
+			if (typedListener != null) typedListener.EnterVarDynAss(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitBoolAss(this);
+			if (typedListener != null) typedListener.ExitVarDynAss(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBoolAss(this);
+			if (typedVisitor != null) return typedVisitor.VisitVarDynAss(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
-
-	[RuleVersion(0)]
-	public Assign_boolContext assign_bool() {
-		Assign_boolContext _localctx = new Assign_boolContext(Context, State);
-		EnterRule(_localctx, 8, RULE_assign_bool);
-		int _la;
-		try {
-			_localctx = new BoolAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 167;
-			Match(T__2);
-			State = 168;
-			Match(VARIABLE);
-			State = 171;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ASSIGN) {
-				{
-				State = 169;
-				Match(ASSIGN);
-				State = 170;
-				Match(BOOL);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_bool_logicalContext : ParserRuleContext {
-		public Assign_bool_logicalContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_bool_logical; } }
-	 
-		public Assign_bool_logicalContext() { }
-		public virtual void CopyFrom(Assign_bool_logicalContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class BoolLogAssContext : Assign_bool_logicalContext {
-		public Logical_instructionsContext expr;
+	public partial class StringAssContext : AssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions() {
-			return GetRuleContext<Logical_instructionsContext>(0);
-		}
-		public BoolLogAssContext(Assign_bool_logicalContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterBoolLogAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitBoolLogAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBoolLogAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_bool_logicalContext assign_bool_logical() {
-		Assign_bool_logicalContext _localctx = new Assign_bool_logicalContext(Context, State);
-		EnterRule(_localctx, 10, RULE_assign_bool_logical);
-		try {
-			_localctx = new BoolLogAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 173;
-			Match(VARIABLE);
-			State = 174;
-			Match(ASSIGN);
-			State = 175;
-			((BoolLogAssContext)_localctx).expr = logical_instructions();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_bool_dynamicContext : ParserRuleContext {
-		public Assign_bool_dynamicContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_bool_dynamic; } }
-	 
-		public Assign_bool_dynamicContext() { }
-		public virtual void CopyFrom(Assign_bool_dynamicContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class BoolDynAssContext : Assign_bool_dynamicContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOL() { return GetToken(SatukParser.BOOL, 0); }
-		public BoolDynAssContext(Assign_bool_dynamicContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterBoolDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitBoolDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitBoolDynAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_bool_dynamicContext assign_bool_dynamic() {
-		Assign_bool_dynamicContext _localctx = new Assign_bool_dynamicContext(Context, State);
-		EnterRule(_localctx, 12, RULE_assign_bool_dynamic);
-		try {
-			_localctx = new BoolDynAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 177;
-			Match(VARIABLE);
-			State = 178;
-			Match(ASSIGN);
-			State = 179;
-			Match(BOOL);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_stringContext : ParserRuleContext {
-		public Assign_stringContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_string; } }
-	 
-		public Assign_stringContext() { }
-		public virtual void CopyFrom(Assign_stringContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class StringAssContext : Assign_stringContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(SatukParser.STRING, 0); }
-		public StringAssContext(Assign_stringContext context) { CopyFrom(context); }
+		public StringAssContext(AssignmentContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
@@ -837,124 +739,12 @@ public partial class SatukParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-
-	[RuleVersion(0)]
-	public Assign_stringContext assign_string() {
-		Assign_stringContext _localctx = new Assign_stringContext(Context, State);
-		EnterRule(_localctx, 14, RULE_assign_string);
-		int _la;
-		try {
-			_localctx = new StringAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 181;
-			Match(T__3);
-			State = 182;
-			Match(VARIABLE);
-			State = 185;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ASSIGN) {
-				{
-				State = 183;
-				Match(ASSIGN);
-				State = 184;
-				Match(STRING);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_string_dynamicContext : ParserRuleContext {
-		public Assign_string_dynamicContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_string_dynamic; } }
-	 
-		public Assign_string_dynamicContext() { }
-		public virtual void CopyFrom(Assign_string_dynamicContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class StringDynAssContext : Assign_string_dynamicContext {
+	public partial class CharAssContext : AssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(SatukParser.STRING, 0); }
-		public StringDynAssContext(Assign_string_dynamicContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterStringDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitStringDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStringDynAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_string_dynamicContext assign_string_dynamic() {
-		Assign_string_dynamicContext _localctx = new Assign_string_dynamicContext(Context, State);
-		EnterRule(_localctx, 16, RULE_assign_string_dynamic);
-		try {
-			_localctx = new StringDynAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 187;
-			Match(VARIABLE);
-			State = 188;
-			Match(ASSIGN);
-			State = 189;
-			Match(STRING);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_charContext : ParserRuleContext {
-		public Assign_charContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_char; } }
-	 
-		public Assign_charContext() { }
-		public virtual void CopyFrom(Assign_charContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class CharAssContext : Assign_charContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHAR() { return GetToken(SatukParser.CHAR, 0); }
-		public CharAssContext(Assign_charContext context) { CopyFrom(context); }
+		public CharAssContext(AssignmentContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
@@ -972,520 +762,33 @@ public partial class SatukParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-
-	[RuleVersion(0)]
-	public Assign_charContext assign_char() {
-		Assign_charContext _localctx = new Assign_charContext(Context, State);
-		EnterRule(_localctx, 18, RULE_assign_char);
-		int _la;
-		try {
-			_localctx = new CharAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 191;
-			Match(T__4);
-			State = 192;
-			Match(VARIABLE);
-			State = 195;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ASSIGN) {
-				{
-				State = 193;
-				Match(ASSIGN);
-				State = 194;
-				Match(CHAR);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_char_dynamicContext : ParserRuleContext {
-		public Assign_char_dynamicContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_char_dynamic; } }
-	 
-		public Assign_char_dynamicContext() { }
-		public virtual void CopyFrom(Assign_char_dynamicContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class CharDynAssContext : Assign_char_dynamicContext {
+	public partial class ArAssContext : AssignmentContext {
+		public ArithmeticsContext expr;
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHAR() { return GetToken(SatukParser.CHAR, 0); }
-		public CharDynAssContext(Assign_char_dynamicContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
+		}
+		public ArAssContext(AssignmentContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterCharDynAss(this);
+			if (typedListener != null) typedListener.EnterArAss(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitCharDynAss(this);
+			if (typedListener != null) typedListener.ExitArAss(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCharDynAss(this);
+			if (typedVisitor != null) return typedVisitor.VisitArAss(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
-
-	[RuleVersion(0)]
-	public Assign_char_dynamicContext assign_char_dynamic() {
-		Assign_char_dynamicContext _localctx = new Assign_char_dynamicContext(Context, State);
-		EnterRule(_localctx, 20, RULE_assign_char_dynamic);
-		try {
-			_localctx = new CharDynAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 197;
-			Match(VARIABLE);
-			State = 198;
-			Match(ASSIGN);
-			State = 199;
-			Match(CHAR);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_int_constantContext : ParserRuleContext {
-		public Assign_int_constantContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_int_constant; } }
-	 
-		public Assign_int_constantContext() { }
-		public virtual void CopyFrom(Assign_int_constantContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class IntConstAssContext : Assign_int_constantContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
-		public IntConstAssContext(Assign_int_constantContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterIntConstAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitIntConstAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIntConstAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_int_constantContext assign_int_constant() {
-		Assign_int_constantContext _localctx = new Assign_int_constantContext(Context, State);
-		EnterRule(_localctx, 22, RULE_assign_int_constant);
-		int _la;
-		try {
-			_localctx = new IntConstAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 201;
-			Match(T__5);
-			State = 202;
-			Match(VARIABLE);
-			State = 205;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ASSIGN) {
-				{
-				State = 203;
-				Match(ASSIGN);
-				State = 204;
-				Match(INT);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_int_arContext : ParserRuleContext {
-		public Assign_int_arContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_int_ar; } }
-	 
-		public Assign_int_arContext() { }
-		public virtual void CopyFrom(Assign_int_arContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class IntArAssContext : Assign_int_arContext {
-		public Arithmetics_intContext expr;
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Arithmetics_intContext arithmetics_int() {
-			return GetRuleContext<Arithmetics_intContext>(0);
-		}
-		public IntArAssContext(Assign_int_arContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterIntArAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitIntArAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIntArAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_int_arContext assign_int_ar() {
-		Assign_int_arContext _localctx = new Assign_int_arContext(Context, State);
-		EnterRule(_localctx, 24, RULE_assign_int_ar);
-		try {
-			_localctx = new IntArAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 207;
-			Match(VARIABLE);
-			State = 208;
-			Match(ASSIGN);
-			State = 209;
-			((IntArAssContext)_localctx).expr = arithmetics_int();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_int_dynamicContext : ParserRuleContext {
-		public Assign_int_dynamicContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_int_dynamic; } }
-	 
-		public Assign_int_dynamicContext() { }
-		public virtual void CopyFrom(Assign_int_dynamicContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class IntDynAssContext : Assign_int_dynamicContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
-		public IntDynAssContext(Assign_int_dynamicContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterIntDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitIntDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIntDynAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_int_dynamicContext assign_int_dynamic() {
-		Assign_int_dynamicContext _localctx = new Assign_int_dynamicContext(Context, State);
-		EnterRule(_localctx, 26, RULE_assign_int_dynamic);
-		try {
-			_localctx = new IntDynAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 211;
-			Match(VARIABLE);
-			State = 212;
-			Match(ASSIGN);
-			State = 213;
-			Match(INT);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_float_constantContext : ParserRuleContext {
-		public Assign_float_constantContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_float_constant; } }
-	 
-		public Assign_float_constantContext() { }
-		public virtual void CopyFrom(Assign_float_constantContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class FloatConstAssContext : Assign_float_constantContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
-		public FloatConstAssContext(Assign_float_constantContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterFloatConstAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitFloatConstAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFloatConstAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_float_constantContext assign_float_constant() {
-		Assign_float_constantContext _localctx = new Assign_float_constantContext(Context, State);
-		EnterRule(_localctx, 28, RULE_assign_float_constant);
-		int _la;
-		try {
-			_localctx = new FloatConstAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 215;
-			Match(T__6);
-			State = 216;
-			Match(VARIABLE);
-			State = 219;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ASSIGN) {
-				{
-				State = 217;
-				Match(ASSIGN);
-				State = 218;
-				Match(FLOAT);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_float_dynamicContext : ParserRuleContext {
-		public Assign_float_dynamicContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_float_dynamic; } }
-	 
-		public Assign_float_dynamicContext() { }
-		public virtual void CopyFrom(Assign_float_dynamicContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class FloatDynAssContext : Assign_float_dynamicContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
-		public FloatDynAssContext(Assign_float_dynamicContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterFloatDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitFloatDynAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFloatDynAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_float_dynamicContext assign_float_dynamic() {
-		Assign_float_dynamicContext _localctx = new Assign_float_dynamicContext(Context, State);
-		EnterRule(_localctx, 30, RULE_assign_float_dynamic);
-		try {
-			_localctx = new FloatDynAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 221;
-			Match(VARIABLE);
-			State = 222;
-			Match(ASSIGN);
-			State = 223;
-			Match(FLOAT);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assign_float_arContext : ParserRuleContext {
-		public Assign_float_arContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assign_float_ar; } }
-	 
-		public Assign_float_arContext() { }
-		public virtual void CopyFrom(Assign_float_arContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class FloatArAssContext : Assign_float_arContext {
-		public Arithmetics_floatContext expr;
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Arithmetics_floatContext arithmetics_float() {
-			return GetRuleContext<Arithmetics_floatContext>(0);
-		}
-		public FloatArAssContext(Assign_float_arContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterFloatArAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitFloatArAss(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFloatArAss(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Assign_float_arContext assign_float_ar() {
-		Assign_float_arContext _localctx = new Assign_float_arContext(Context, State);
-		EnterRule(_localctx, 32, RULE_assign_float_ar);
-		try {
-			_localctx = new FloatArAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 225;
-			Match(VARIABLE);
-			State = 226;
-			Match(ASSIGN);
-			State = 227;
-			((FloatArAssContext)_localctx).expr = arithmetics_float();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Assignment_classContext : ParserRuleContext {
-		public Assignment_classContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_assignment_class; } }
-	 
-		public Assignment_classContext() { }
-		public virtual void CopyFrom(Assignment_classContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class ClassAssContext : Assignment_classContext {
+	public partial class ClassAssContext : AssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] VARIABLE() { return GetTokens(SatukParser.VARIABLE); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE(int i) {
 			return GetToken(SatukParser.VARIABLE, i);
@@ -1517,7 +820,7 @@ public partial class SatukParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode COMMA(int i) {
 			return GetToken(SatukParser.COMMA, i);
 		}
-		public ClassAssContext(Assignment_classContext context) { CopyFrom(context); }
+		public ClassAssContext(AssignmentContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
@@ -1535,57 +838,277 @@ public partial class SatukParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
+	public partial class BoolAssContext : AssignmentContext {
+		public Logical_instructionsContext expr;
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions() {
+			return GetRuleContext<Logical_instructionsContext>(0);
+		}
+		public BoolAssContext(AssignmentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterBoolAss(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitBoolAss(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBoolAss(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class IntConstAssContext : AssignmentContext {
+		public ArithmeticsContext expr;
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
+		}
+		public IntConstAssContext(AssignmentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterIntConstAss(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitIntConstAss(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIntConstAss(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class FloatConstAssContext : AssignmentContext {
+		public ArithmeticsContext expr;
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ASSIGN() { return GetToken(SatukParser.ASSIGN, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
+		}
+		public FloatConstAssContext(AssignmentContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterFloatConstAss(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitFloatConstAss(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFloatConstAss(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
 
 	[RuleVersion(0)]
-	public Assignment_classContext assignment_class() {
-		Assignment_classContext _localctx = new Assignment_classContext(Context, State);
-		EnterRule(_localctx, 34, RULE_assignment_class);
+	public AssignmentContext assignment() {
+		AssignmentContext _localctx = new AssignmentContext(Context, State);
+		EnterRule(_localctx, 8, RULE_assignment);
 		int _la;
 		try {
-			_localctx = new ClassAssContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 229;
-			Match(VARIABLE);
-			State = 230;
-			Match(VARIABLE);
-			State = 249;
+			State = 173;
 			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==ASSIGN) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,13,Context) ) {
+			case 1:
+				_localctx = new ArAssContext(_localctx);
+				EnterOuterAlt(_localctx, 1);
 				{
-				State = 231;
-				Match(ASSIGN);
-				State = 232;
-				Match(T__7);
-				State = 233;
+				State = 107;
 				Match(VARIABLE);
-				State = 234;
-				Match(LPAREN);
-				State = 245;
+				State = 108;
+				Match(ASSIGN);
+				State = 109;
+				((ArAssContext)_localctx).expr = arithmetics(0);
+				State = 110;
+				Match(SEMICOLON);
+				}
+				break;
+			case 2:
+				_localctx = new BoolAssContext(_localctx);
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 112;
+				Match(T__2);
+				State = 113;
+				Match(VARIABLE);
+				State = 116;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) {
+				if (_la==ASSIGN) {
 					{
+					State = 114;
+					Match(ASSIGN);
+					State = 115;
+					((BoolAssContext)_localctx).expr = logical_instructions(0);
+					}
+				}
+
+				State = 118;
+				Match(SEMICOLON);
+				}
+				break;
+			case 3:
+				_localctx = new StringAssContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 119;
+				Match(T__3);
+				State = 120;
+				Match(VARIABLE);
+				State = 123;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==ASSIGN) {
 					{
-					State = 235;
-					_la = TokenStream.LA(1);
-					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) ) {
-					ErrorHandler.RecoverInline(this);
+					State = 121;
+					Match(ASSIGN);
+					State = 122;
+					Match(STRING);
 					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
+				}
+
+				State = 125;
+				Match(SEMICOLON);
+				}
+				break;
+			case 4:
+				_localctx = new CharAssContext(_localctx);
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 126;
+				Match(T__4);
+				State = 127;
+				Match(VARIABLE);
+				State = 130;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==ASSIGN) {
+					{
+					State = 128;
+					Match(ASSIGN);
+					State = 129;
+					Match(CHAR);
 					}
-					State = 240;
+				}
+
+				State = 132;
+				Match(SEMICOLON);
+				}
+				break;
+			case 5:
+				_localctx = new IntConstAssContext(_localctx);
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 133;
+				Match(T__5);
+				State = 134;
+				Match(VARIABLE);
+				State = 137;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==ASSIGN) {
+					{
+					State = 135;
+					Match(ASSIGN);
+					State = 136;
+					((IntConstAssContext)_localctx).expr = arithmetics(0);
+					}
+				}
+
+				State = 139;
+				Match(SEMICOLON);
+				}
+				break;
+			case 6:
+				_localctx = new VarDynAssContext(_localctx);
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 140;
+				Match(VARIABLE);
+				State = 141;
+				Match(ASSIGN);
+				State = 142;
+				_la = TokenStream.LA(1);
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 8725724278030336L) != 0)) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
+				State = 143;
+				Match(SEMICOLON);
+				}
+				break;
+			case 7:
+				_localctx = new FloatConstAssContext(_localctx);
+				EnterOuterAlt(_localctx, 7);
+				{
+				State = 144;
+				Match(T__6);
+				State = 145;
+				Match(VARIABLE);
+				State = 148;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==ASSIGN) {
+					{
+					State = 146;
+					Match(ASSIGN);
+					State = 147;
+					((FloatConstAssContext)_localctx).expr = arithmetics(0);
+					}
+				}
+
+				State = 150;
+				Match(SEMICOLON);
+				}
+				break;
+			case 8:
+				_localctx = new ClassAssContext(_localctx);
+				EnterOuterAlt(_localctx, 8);
+				{
+				State = 151;
+				Match(VARIABLE);
+				State = 152;
+				Match(VARIABLE);
+				State = 171;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==ASSIGN) {
+					{
+					State = 153;
+					Match(ASSIGN);
+					State = 154;
+					Match(T__7);
+					State = 155;
+					Match(VARIABLE);
+					State = 156;
+					Match(LPAREN);
+					State = 167;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
-					while (_la==COMMA) {
+					while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) {
 						{
 						{
-						State = 236;
-						Match(COMMA);
-						State = 237;
+						State = 157;
 						_la = TokenStream.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) ) {
 						ErrorHandler.RecoverInline(this);
@@ -1594,23 +1117,42 @@ public partial class SatukParser : Parser {
 							ErrorHandler.ReportMatch(this);
 						    Consume();
 						}
+						State = 162;
+						ErrorHandler.Sync(this);
+						_la = TokenStream.LA(1);
+						while (_la==COMMA) {
+							{
+							{
+							State = 158;
+							Match(COMMA);
+							State = 159;
+							_la = TokenStream.LA(1);
+							if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) ) {
+							ErrorHandler.RecoverInline(this);
+							}
+							else {
+								ErrorHandler.ReportMatch(this);
+							    Consume();
+							}
+							}
+							}
+							State = 164;
+							ErrorHandler.Sync(this);
+							_la = TokenStream.LA(1);
 						}
 						}
-						State = 242;
+						}
+						State = 169;
 						ErrorHandler.Sync(this);
 						_la = TokenStream.LA(1);
 					}
+					State = 170;
+					Match(RPAREN);
 					}
-					}
-					State = 247;
-					ErrorHandler.Sync(this);
-					_la = TokenStream.LA(1);
 				}
-				State = 248;
-				Match(RPAREN);
-				}
-			}
 
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -1659,17 +1201,17 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Assignment_functionContext assignment_function() {
 		Assignment_functionContext _localctx = new Assignment_functionContext(Context, State);
-		EnterRule(_localctx, 36, RULE_assignment_function);
+		EnterRule(_localctx, 10, RULE_assignment_function);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 252;
+			State = 176;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,13,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,14,Context) ) {
 			case 1:
 				{
-				State = 251;
+				State = 175;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -1681,11 +1223,11 @@ public partial class SatukParser : Parser {
 				}
 				break;
 			}
-			State = 254;
+			State = 178;
 			Match(VARIABLE);
-			State = 255;
+			State = 179;
 			Match(ASSIGN);
-			State = 256;
+			State = 180;
 			execute_function();
 			}
 		}
@@ -1802,14 +1344,14 @@ public partial class SatukParser : Parser {
 		int _parentState = State;
 		ArithmeticsContext _localctx = new ArithmeticsContext(Context, _parentState);
 		ArithmeticsContext _prevctx = _localctx;
-		int _startState = 38;
-		EnterRecursionRule(_localctx, 38, RULE_arithmetics, _p);
+		int _startState = 12;
+		EnterRecursionRule(_localctx, 12, RULE_arithmetics, _p);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 264;
+			State = 188;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case LPAREN:
@@ -1818,11 +1360,11 @@ public partial class SatukParser : Parser {
 				Context = _localctx;
 				_prevctx = _localctx;
 
-				State = 259;
+				State = 183;
 				Match(LPAREN);
-				State = 260;
+				State = 184;
 				arithmetics(0);
-				State = 261;
+				State = 185;
 				Match(RPAREN);
 				}
 				break;
@@ -1833,7 +1375,7 @@ public partial class SatukParser : Parser {
 				_localctx = new NumberArithmContext(_localctx);
 				Context = _localctx;
 				_prevctx = _localctx;
-				State = 263;
+				State = 187;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 11540474045136896L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -1848,26 +1390,26 @@ public partial class SatukParser : Parser {
 				throw new NoViableAltException(this);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 274;
+			State = 198;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,16,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( ParseListeners!=null )
 						TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 272;
+					State = 196;
 					ErrorHandler.Sync(this);
-					switch ( Interpreter.AdaptivePredict(TokenStream,15,Context) ) {
+					switch ( Interpreter.AdaptivePredict(TokenStream,16,Context) ) {
 					case 1:
 						{
 						_localctx = new OpArithmContext(new ArithmeticsContext(_parentctx, _parentState));
 						((OpArithmContext)_localctx).left = _prevctx;
 						PushNewRecursionContext(_localctx, _startState, RULE_arithmetics);
-						State = 266;
+						State = 190;
 						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
-						State = 267;
+						State = 191;
 						((OpArithmContext)_localctx).op = TokenStream.LT(1);
 						_la = TokenStream.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 7696581394432L) != 0)) ) {
@@ -1877,7 +1419,7 @@ public partial class SatukParser : Parser {
 							ErrorHandler.ReportMatch(this);
 						    Consume();
 						}
-						State = 268;
+						State = 192;
 						((OpArithmContext)_localctx).right = arithmetics(5);
 						}
 						break;
@@ -1886,9 +1428,9 @@ public partial class SatukParser : Parser {
 						_localctx = new OpArithmContext(new ArithmeticsContext(_parentctx, _parentState));
 						((OpArithmContext)_localctx).left = _prevctx;
 						PushNewRecursionContext(_localctx, _startState, RULE_arithmetics);
-						State = 269;
+						State = 193;
 						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
-						State = 270;
+						State = 194;
 						((OpArithmContext)_localctx).op = TokenStream.LT(1);
 						_la = TokenStream.LA(1);
 						if ( !(_la==ADD || _la==SUB) ) {
@@ -1898,16 +1440,16 @@ public partial class SatukParser : Parser {
 							ErrorHandler.ReportMatch(this);
 						    Consume();
 						}
-						State = 271;
+						State = 195;
 						((OpArithmContext)_localctx).right = arithmetics(4);
 						}
 						break;
 					}
 					} 
 				}
-				State = 276;
+				State = 200;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,16,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,17,Context);
 			}
 			}
 		}
@@ -1922,682 +1464,23 @@ public partial class SatukParser : Parser {
 		return _localctx;
 	}
 
-	public partial class Arithmetics_intContext : ParserRuleContext {
-		public Arithmetics_intContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_arithmetics_int; } }
-	 
-		public Arithmetics_intContext() { }
-		public virtual void CopyFrom(Arithmetics_intContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class OpArithmIntContext : Arithmetics_intContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] INT() { return GetTokens(SatukParser.INT); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT(int i) {
-			return GetToken(SatukParser.INT, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] VARIABLE() { return GetTokens(SatukParser.VARIABLE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE(int i) {
-			return GetToken(SatukParser.VARIABLE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] ADD() { return GetTokens(SatukParser.ADD); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ADD(int i) {
-			return GetToken(SatukParser.ADD, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SUB() { return GetTokens(SatukParser.SUB); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SUB(int i) {
-			return GetToken(SatukParser.SUB, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MUL() { return GetTokens(SatukParser.MUL); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MUL(int i) {
-			return GetToken(SatukParser.MUL, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DIV() { return GetTokens(SatukParser.DIV); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIV(int i) {
-			return GetToken(SatukParser.DIV, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MOD() { return GetTokens(SatukParser.MOD); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MOD(int i) {
-			return GetToken(SatukParser.MOD, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] ADD_ASSIGN() { return GetTokens(SatukParser.ADD_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ADD_ASSIGN(int i) {
-			return GetToken(SatukParser.ADD_ASSIGN, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SUB_ASSIGN() { return GetTokens(SatukParser.SUB_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SUB_ASSIGN(int i) {
-			return GetToken(SatukParser.SUB_ASSIGN, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MUL_ASSIGN() { return GetTokens(SatukParser.MUL_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MUL_ASSIGN(int i) {
-			return GetToken(SatukParser.MUL_ASSIGN, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DIV_ASSIGN() { return GetTokens(SatukParser.DIV_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIV_ASSIGN(int i) {
-			return GetToken(SatukParser.DIV_ASSIGN, i);
-		}
-		public OpArithmIntContext(Arithmetics_intContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterOpArithmInt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitOpArithmInt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitOpArithmInt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Arithmetics_intContext arithmetics_int() {
-		Arithmetics_intContext _localctx = new Arithmetics_intContext(Context, State);
-		EnterRule(_localctx, 40, RULE_arithmetics_int);
-		int _la;
-		try {
-			_localctx = new OpArithmIntContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 277;
-			_la = TokenStream.LA(1);
-			if ( !(_la==INT || _la==VARIABLE) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 280;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			do {
-				{
-				{
-				State = 278;
-				_la = TokenStream.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 140462610448384L) != 0)) ) {
-				ErrorHandler.RecoverInline(this);
-				}
-				else {
-					ErrorHandler.ReportMatch(this);
-				    Consume();
-				}
-				State = 279;
-				_la = TokenStream.LA(1);
-				if ( !(_la==INT || _la==VARIABLE) ) {
-				ErrorHandler.RecoverInline(this);
-				}
-				else {
-					ErrorHandler.ReportMatch(this);
-				    Consume();
-				}
-				}
-				}
-				State = 282;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 140462610448384L) != 0) );
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Arithmetics_floatContext : ParserRuleContext {
-		public Arithmetics_floatContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_arithmetics_float; } }
-	 
-		public Arithmetics_floatContext() { }
-		public virtual void CopyFrom(Arithmetics_floatContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class OpArithmFloatContext : Arithmetics_floatContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] FLOAT() { return GetTokens(SatukParser.FLOAT); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT(int i) {
-			return GetToken(SatukParser.FLOAT, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] VARIABLE() { return GetTokens(SatukParser.VARIABLE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE(int i) {
-			return GetToken(SatukParser.VARIABLE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] ADD() { return GetTokens(SatukParser.ADD); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ADD(int i) {
-			return GetToken(SatukParser.ADD, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SUB() { return GetTokens(SatukParser.SUB); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SUB(int i) {
-			return GetToken(SatukParser.SUB, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MUL() { return GetTokens(SatukParser.MUL); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MUL(int i) {
-			return GetToken(SatukParser.MUL, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DIV() { return GetTokens(SatukParser.DIV); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIV(int i) {
-			return GetToken(SatukParser.DIV, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MOD() { return GetTokens(SatukParser.MOD); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MOD(int i) {
-			return GetToken(SatukParser.MOD, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] ADD_ASSIGN() { return GetTokens(SatukParser.ADD_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ADD_ASSIGN(int i) {
-			return GetToken(SatukParser.ADD_ASSIGN, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] SUB_ASSIGN() { return GetTokens(SatukParser.SUB_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SUB_ASSIGN(int i) {
-			return GetToken(SatukParser.SUB_ASSIGN, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] MUL_ASSIGN() { return GetTokens(SatukParser.MUL_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MUL_ASSIGN(int i) {
-			return GetToken(SatukParser.MUL_ASSIGN, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] DIV_ASSIGN() { return GetTokens(SatukParser.DIV_ASSIGN); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DIV_ASSIGN(int i) {
-			return GetToken(SatukParser.DIV_ASSIGN, i);
-		}
-		public OpArithmFloatContext(Arithmetics_floatContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterOpArithmFloat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitOpArithmFloat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitOpArithmFloat(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Arithmetics_floatContext arithmetics_float() {
-		Arithmetics_floatContext _localctx = new Arithmetics_floatContext(Context, State);
-		EnterRule(_localctx, 42, RULE_arithmetics_float);
-		int _la;
-		try {
-			_localctx = new OpArithmFloatContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 284;
-			_la = TokenStream.LA(1);
-			if ( !(_la==FLOAT || _la==VARIABLE) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 287;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			do {
-				{
-				{
-				State = 285;
-				_la = TokenStream.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 140462610448384L) != 0)) ) {
-				ErrorHandler.RecoverInline(this);
-				}
-				else {
-					ErrorHandler.ReportMatch(this);
-				    Consume();
-				}
-				State = 286;
-				_la = TokenStream.LA(1);
-				if ( !(_la==FLOAT || _la==VARIABLE) ) {
-				ErrorHandler.RecoverInline(this);
-				}
-				else {
-					ErrorHandler.ReportMatch(this);
-				    Consume();
-				}
-				}
-				}
-				State = 289;
-				ErrorHandler.Sync(this);
-				_la = TokenStream.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 140462610448384L) != 0) );
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
 	public partial class MutatorsContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Int_incContext int_inc() {
-			return GetRuleContext<Int_incContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Float_incContext float_inc() {
-			return GetRuleContext<Float_incContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Int_decContext int_dec() {
-			return GetRuleContext<Int_decContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Float_decContext float_dec() {
-			return GetRuleContext<Float_decContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Variable_incContext variable_inc() {
-			return GetRuleContext<Variable_incContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Variable_decContext variable_dec() {
-			return GetRuleContext<Variable_decContext>(0);
-		}
 		public MutatorsContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_mutators; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterMutators(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitMutators(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitMutators(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public MutatorsContext mutators() {
-		MutatorsContext _localctx = new MutatorsContext(Context, State);
-		EnterRule(_localctx, 44, RULE_mutators);
-		try {
-			State = 297;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,19,Context) ) {
-			case 1:
-				EnterOuterAlt(_localctx, 1);
-				{
-				State = 291;
-				int_inc();
-				}
-				break;
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 292;
-				float_inc();
-				}
-				break;
-			case 3:
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 293;
-				int_dec();
-				}
-				break;
-			case 4:
-				EnterOuterAlt(_localctx, 4);
-				{
-				State = 294;
-				float_dec();
-				}
-				break;
-			case 5:
-				EnterOuterAlt(_localctx, 5);
-				{
-				State = 295;
-				variable_inc();
-				}
-				break;
-			case 6:
-				EnterOuterAlt(_localctx, 6);
-				{
-				State = 296;
-				variable_dec();
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Int_incContext : ParserRuleContext {
-		public Int_incContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_int_inc; } }
 	 
-		public Int_incContext() { }
-		public virtual void CopyFrom(Int_incContext context) {
+		public MutatorsContext() { }
+		public virtual void CopyFrom(MutatorsContext context) {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class IncIntContext : Int_incContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INC() { return GetToken(SatukParser.INC, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		public IncIntContext(Int_incContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterIncInt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitIncInt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIncInt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Int_incContext int_inc() {
-		Int_incContext _localctx = new Int_incContext(Context, State);
-		EnterRule(_localctx, 46, RULE_int_inc);
-		try {
-			_localctx = new IncIntContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 299;
-			Match(INT);
-			State = 300;
-			Match(INC);
-			State = 302;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
-			case 1:
-				{
-				State = 301;
-				Match(SEMICOLON);
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Float_incContext : ParserRuleContext {
-		public Float_incContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_float_inc; } }
-	 
-		public Float_incContext() { }
-		public virtual void CopyFrom(Float_incContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class IncFloatContext : Float_incContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INC() { return GetToken(SatukParser.INC, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		public IncFloatContext(Float_incContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterIncFloat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitIncFloat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIncFloat(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Float_incContext float_inc() {
-		Float_incContext _localctx = new Float_incContext(Context, State);
-		EnterRule(_localctx, 48, RULE_float_inc);
-		try {
-			_localctx = new IncFloatContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 304;
-			Match(FLOAT);
-			State = 305;
-			Match(INC);
-			State = 307;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,21,Context) ) {
-			case 1:
-				{
-				State = 306;
-				Match(SEMICOLON);
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Int_decContext : ParserRuleContext {
-		public Int_decContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_int_dec; } }
-	 
-		public Int_decContext() { }
-		public virtual void CopyFrom(Int_decContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class DecIntContext : Int_decContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEC() { return GetToken(SatukParser.DEC, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		public DecIntContext(Int_decContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterDecInt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitDecInt(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDecInt(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Int_decContext int_dec() {
-		Int_decContext _localctx = new Int_decContext(Context, State);
-		EnterRule(_localctx, 50, RULE_int_dec);
-		try {
-			_localctx = new DecIntContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 309;
-			Match(INT);
-			State = 310;
-			Match(DEC);
-			State = 312;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,22,Context) ) {
-			case 1:
-				{
-				State = 311;
-				Match(SEMICOLON);
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Float_decContext : ParserRuleContext {
-		public Float_decContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_float_dec; } }
-	 
-		public Float_decContext() { }
-		public virtual void CopyFrom(Float_decContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class DecFloatContext : Float_decContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEC() { return GetToken(SatukParser.DEC, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		public DecFloatContext(Float_decContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterDecFloat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitDecFloat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDecFloat(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Float_decContext float_dec() {
-		Float_decContext _localctx = new Float_decContext(Context, State);
-		EnterRule(_localctx, 52, RULE_float_dec);
-		try {
-			_localctx = new DecFloatContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 314;
-			Match(FLOAT);
-			State = 315;
-			Match(DEC);
-			State = 317;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,23,Context) ) {
-			case 1:
-				{
-				State = 316;
-				Match(SEMICOLON);
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Variable_incContext : ParserRuleContext {
-		public Variable_incContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_variable_inc; } }
-	 
-		public Variable_incContext() { }
-		public virtual void CopyFrom(Variable_incContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class IncVarContext : Variable_incContext {
+	public partial class IncVarContext : MutatorsContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INC() { return GetToken(SatukParser.INC, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		public IncVarContext(Variable_incContext context) { CopyFrom(context); }
+		public IncVarContext(MutatorsContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
@@ -2615,60 +1498,11 @@ public partial class SatukParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-
-	[RuleVersion(0)]
-	public Variable_incContext variable_inc() {
-		Variable_incContext _localctx = new Variable_incContext(Context, State);
-		EnterRule(_localctx, 54, RULE_variable_inc);
-		int _la;
-		try {
-			_localctx = new IncVarContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 319;
-			Match(VARIABLE);
-			State = 320;
-			Match(INC);
-			State = 322;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==SEMICOLON) {
-				{
-				State = 321;
-				Match(SEMICOLON);
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Variable_decContext : ParserRuleContext {
-		public Variable_decContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_variable_dec; } }
-	 
-		public Variable_decContext() { }
-		public virtual void CopyFrom(Variable_decContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class DecVarContext : Variable_decContext {
+	public partial class DecVarContext : MutatorsContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode DEC() { return GetToken(SatukParser.DEC, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
-		public DecVarContext(Variable_decContext context) { CopyFrom(context); }
+		public DecVarContext(MutatorsContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
@@ -2688,28 +1522,54 @@ public partial class SatukParser : Parser {
 	}
 
 	[RuleVersion(0)]
-	public Variable_decContext variable_dec() {
-		Variable_decContext _localctx = new Variable_decContext(Context, State);
-		EnterRule(_localctx, 56, RULE_variable_dec);
+	public MutatorsContext mutators() {
+		MutatorsContext _localctx = new MutatorsContext(Context, State);
+		EnterRule(_localctx, 14, RULE_mutators);
 		int _la;
 		try {
-			_localctx = new DecVarContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 324;
-			Match(VARIABLE);
-			State = 325;
-			Match(DEC);
-			State = 327;
+			State = 211;
 			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==SEMICOLON) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,20,Context) ) {
+			case 1:
+				_localctx = new IncVarContext(_localctx);
+				EnterOuterAlt(_localctx, 1);
 				{
-				State = 326;
-				Match(SEMICOLON);
+				State = 201;
+				Match(VARIABLE);
+				State = 202;
+				Match(INC);
+				State = 204;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==SEMICOLON) {
+					{
+					State = 203;
+					Match(SEMICOLON);
+					}
 				}
-			}
 
+				}
+				break;
+			case 2:
+				_localctx = new DecVarContext(_localctx);
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 206;
+				Match(VARIABLE);
+				State = 207;
+				Match(DEC);
+				State = 209;
+				ErrorHandler.Sync(this);
+				_la = TokenStream.LA(1);
+				if (_la==SEMICOLON) {
+					{
+					State = 208;
+					Match(SEMICOLON);
+					}
+				}
+
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -2724,208 +1584,251 @@ public partial class SatukParser : Parser {
 	}
 
 	public partial class Logical_instructionsContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_boolContext logical_bool() {
-			return GetRuleContext<Logical_boolContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_numericContext logical_numeric() {
-			return GetRuleContext<Logical_numericContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_textContext logical_text() {
-			return GetRuleContext<Logical_textContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_varContext logical_var() {
-			return GetRuleContext<Logical_varContext>(0);
-		}
 		public Logical_instructionsContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_logical_instructions; } }
+	 
+		public Logical_instructionsContext() { }
+		public virtual void CopyFrom(Logical_instructionsContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class NotLogicalContext : Logical_instructionsContext {
+		public Logical_instructionsContext expr;
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(SatukParser.NOT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions() {
+			return GetRuleContext<Logical_instructionsContext>(0);
+		}
+		public NotLogicalContext(Logical_instructionsContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterLogical_instructions(this);
+			if (typedListener != null) typedListener.EnterNotLogical(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
 			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitLogical_instructions(this);
+			if (typedListener != null) typedListener.ExitNotLogical(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLogical_instructions(this);
+			if (typedVisitor != null) return typedVisitor.VisitNotLogical(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class OpLogicalContext : Logical_instructionsContext {
+		public Logical_instructionsContext left;
+		public IToken op;
+		public Logical_instructionsContext right;
+		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext[] logical_instructions() {
+			return GetRuleContexts<Logical_instructionsContext>();
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions(int i) {
+			return GetRuleContext<Logical_instructionsContext>(i);
+		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LE() { return GetToken(SatukParser.LE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GE() { return GetToken(SatukParser.GE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(SatukParser.LT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(SatukParser.GT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUAL() { return GetToken(SatukParser.EQUAL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOTEQUAL() { return GetToken(SatukParser.NOTEQUAL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR() { return GetToken(SatukParser.OR, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND() { return GetToken(SatukParser.AND, 0); }
+		public OpLogicalContext(Logical_instructionsContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterOpLogical(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitOpLogical(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOpLogical(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class VarLogicalContext : Logical_instructionsContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOL() { return GetToken(SatukParser.BOOL, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
+		}
+		public VarLogicalContext(Logical_instructionsContext context) { CopyFrom(context); }
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void EnterRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.EnterVarLogical(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override void ExitRule(IParseTreeListener listener) {
+			ISatukListener typedListener = listener as ISatukListener;
+			if (typedListener != null) typedListener.ExitVarLogical(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVarLogical(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
 
 	[RuleVersion(0)]
 	public Logical_instructionsContext logical_instructions() {
-		Logical_instructionsContext _localctx = new Logical_instructionsContext(Context, State);
-		EnterRule(_localctx, 58, RULE_logical_instructions);
-		try {
-			State = 333;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,26,Context) ) {
-			case 1:
-				EnterOuterAlt(_localctx, 1);
-				{
-				State = 329;
-				logical_bool();
-				}
-				break;
-			case 2:
-				EnterOuterAlt(_localctx, 2);
-				{
-				State = 330;
-				logical_numeric();
-				}
-				break;
-			case 3:
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 331;
-				logical_text();
-				}
-				break;
-			case 4:
-				EnterOuterAlt(_localctx, 4);
-				{
-				State = 332;
-				logical_var();
-				}
-				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
+		return logical_instructions(0);
 	}
 
-	public partial class Logical_boolContext : ParserRuleContext {
-		public Logical_boolContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_logical_bool; } }
-	 
-		public Logical_boolContext() { }
-		public virtual void CopyFrom(Logical_boolContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class LogBoolContext : Logical_boolContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] BOOL() { return GetTokens(SatukParser.BOOL); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOL(int i) {
-			return GetToken(SatukParser.BOOL, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(SatukParser.NOT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext[] logical_instructions() {
-			return GetRuleContexts<Logical_instructionsContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions(int i) {
-			return GetRuleContext<Logical_instructionsContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOTEQUAL() { return GetToken(SatukParser.NOTEQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUAL() { return GetToken(SatukParser.EQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] OR() { return GetTokens(SatukParser.OR); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR(int i) {
-			return GetToken(SatukParser.OR, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AND() { return GetTokens(SatukParser.AND); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND(int i) {
-			return GetToken(SatukParser.AND, i);
-		}
-		public LogBoolContext(Logical_boolContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterLogBool(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitLogBool(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLogBool(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Logical_boolContext logical_bool() {
-		Logical_boolContext _localctx = new Logical_boolContext(Context, State);
-		EnterRule(_localctx, 60, RULE_logical_bool);
+	private Logical_instructionsContext logical_instructions(int _p) {
+		ParserRuleContext _parentctx = Context;
+		int _parentState = State;
+		Logical_instructionsContext _localctx = new Logical_instructionsContext(Context, _parentState);
+		Logical_instructionsContext _prevctx = _localctx;
+		int _startState = 16;
+		EnterRecursionRule(_localctx, 16, RULE_logical_instructions, _p);
 		int _la;
 		try {
 			int _alt;
-			_localctx = new LogBoolContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 336;
+			State = 224;
 			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==NOT) {
+			switch (TokenStream.LA(1)) {
+			case NOT:
 				{
-				State = 335;
+				_localctx = new NotLogicalContext(_localctx);
+				Context = _localctx;
+				_prevctx = _localctx;
+
+				State = 214;
 				Match(NOT);
+				State = 215;
+				((NotLogicalContext)_localctx).expr = logical_instructions(4);
 				}
-			}
-
-			State = 338;
-			Match(BOOL);
-			State = 341;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==EQUAL || _la==NOTEQUAL) {
+				break;
+			case LPAREN:
+			case INT:
+			case BOOL:
+			case FLOAT:
+			case VARIABLE:
 				{
-				State = 339;
-				_la = TokenStream.LA(1);
-				if ( !(_la==EQUAL || _la==NOTEQUAL) ) {
-				ErrorHandler.RecoverInline(this);
+				_localctx = new VarLogicalContext(_localctx);
+				Context = _localctx;
+				_prevctx = _localctx;
+				State = 222;
+				ErrorHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(TokenStream,21,Context) ) {
+				case 1:
+					{
+					State = 216;
+					Match(FLOAT);
+					}
+					break;
+				case 2:
+					{
+					State = 217;
+					Match(INT);
+					}
+					break;
+				case 3:
+					{
+					State = 218;
+					Match(VARIABLE);
+					}
+					break;
+				case 4:
+					{
+					State = 219;
+					Match(BOOL);
+					}
+					break;
+				case 5:
+					{
+					State = 220;
+					Match(VARIABLE);
+					}
+					break;
+				case 6:
+					{
+					State = 221;
+					arithmetics(0);
+					}
+					break;
 				}
-				else {
-					ErrorHandler.ReportMatch(this);
-				    Consume();
 				}
-				State = 340;
-				Match(BOOL);
-				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
-
-			State = 347;
+			Context.Stop = TokenStream.LT(-1);
+			State = 234;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
+					if ( ParseListeners!=null )
+						TriggerExitRuleEvent();
+					_prevctx = _localctx;
 					{
-					{
-					State = 343;
-					_la = TokenStream.LA(1);
-					if ( !(_la==AND || _la==OR) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 344;
-					logical_instructions();
+					State = 232;
+					ErrorHandler.Sync(this);
+					switch ( Interpreter.AdaptivePredict(TokenStream,23,Context) ) {
+					case 1:
+						{
+						_localctx = new OpLogicalContext(new Logical_instructionsContext(_parentctx, _parentState));
+						((OpLogicalContext)_localctx).left = _prevctx;
+						PushNewRecursionContext(_localctx, _startState, RULE_logical_instructions);
+						State = 226;
+						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
+						State = 227;
+						((OpLogicalContext)_localctx).op = TokenStream.LT(1);
+						_la = TokenStream.LA(1);
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 16307453952L) != 0)) ) {
+							((OpLogicalContext)_localctx).op = ErrorHandler.RecoverInline(this);
+						}
+						else {
+							ErrorHandler.ReportMatch(this);
+						    Consume();
+						}
+						State = 228;
+						((OpLogicalContext)_localctx).right = logical_instructions(4);
+						}
+						break;
+					case 2:
+						{
+						_localctx = new OpLogicalContext(new Logical_instructionsContext(_parentctx, _parentState));
+						((OpLogicalContext)_localctx).left = _prevctx;
+						PushNewRecursionContext(_localctx, _startState, RULE_logical_instructions);
+						State = 229;
+						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
+						State = 230;
+						((OpLogicalContext)_localctx).op = TokenStream.LT(1);
+						_la = TokenStream.LA(1);
+						if ( !(_la==AND || _la==OR) ) {
+							((OpLogicalContext)_localctx).op = ErrorHandler.RecoverInline(this);
+						}
+						else {
+							ErrorHandler.ReportMatch(this);
+						    Consume();
+						}
+						State = 231;
+						((OpLogicalContext)_localctx).right = logical_instructions(3);
+						}
+						break;
 					}
 					} 
 				}
-				State = 349;
+				State = 236;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,29,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,24,Context);
 			}
 			}
 		}
@@ -2935,413 +1838,7 @@ public partial class SatukParser : Parser {
 			ErrorHandler.Recover(this, re);
 		}
 		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Logical_numericContext : ParserRuleContext {
-		public Logical_numericContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_logical_numeric; } }
-	 
-		public Logical_numericContext() { }
-		public virtual void CopyFrom(Logical_numericContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class LogNumContext : Logical_numericContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] FLOAT() { return GetTokens(SatukParser.FLOAT); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT(int i) {
-			return GetToken(SatukParser.FLOAT, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] INT() { return GetTokens(SatukParser.INT); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT(int i) {
-			return GetToken(SatukParser.INT, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] VARIABLE() { return GetTokens(SatukParser.VARIABLE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE(int i) {
-			return GetToken(SatukParser.VARIABLE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LE() { return GetToken(SatukParser.LE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GE() { return GetToken(SatukParser.GE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(SatukParser.LT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(SatukParser.GT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUAL() { return GetToken(SatukParser.EQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOTEQUAL() { return GetToken(SatukParser.NOTEQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext[] logical_instructions() {
-			return GetRuleContexts<Logical_instructionsContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions(int i) {
-			return GetRuleContext<Logical_instructionsContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] OR() { return GetTokens(SatukParser.OR); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR(int i) {
-			return GetToken(SatukParser.OR, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AND() { return GetTokens(SatukParser.AND); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND(int i) {
-			return GetToken(SatukParser.AND, i);
-		}
-		public LogNumContext(Logical_numericContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterLogNum(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitLogNum(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLogNum(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Logical_numericContext logical_numeric() {
-		Logical_numericContext _localctx = new Logical_numericContext(Context, State);
-		EnterRule(_localctx, 62, RULE_logical_numeric);
-		int _la;
-		try {
-			int _alt;
-			_localctx = new LogNumContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 350;
-			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 11540474045136896L) != 0)) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 351;
-			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 16307453952L) != 0)) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 352;
-			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 11540474045136896L) != 0)) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 357;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,30,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					State = 353;
-					_la = TokenStream.LA(1);
-					if ( !(_la==AND || _la==OR) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 354;
-					logical_instructions();
-					}
-					} 
-				}
-				State = 359;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,30,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Logical_textContext : ParserRuleContext {
-		public Logical_textContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_logical_text; } }
-	 
-		public Logical_textContext() { }
-		public virtual void CopyFrom(Logical_textContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class LogTextContext : Logical_textContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] STRING() { return GetTokens(SatukParser.STRING); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING(int i) {
-			return GetToken(SatukParser.STRING, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] CHAR() { return GetTokens(SatukParser.CHAR); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHAR(int i) {
-			return GetToken(SatukParser.CHAR, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUAL() { return GetToken(SatukParser.EQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOTEQUAL() { return GetToken(SatukParser.NOTEQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext[] logical_instructions() {
-			return GetRuleContexts<Logical_instructionsContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions(int i) {
-			return GetRuleContext<Logical_instructionsContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] OR() { return GetTokens(SatukParser.OR); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR(int i) {
-			return GetToken(SatukParser.OR, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AND() { return GetTokens(SatukParser.AND); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND(int i) {
-			return GetToken(SatukParser.AND, i);
-		}
-		public LogTextContext(Logical_textContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterLogText(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitLogText(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLogText(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Logical_textContext logical_text() {
-		Logical_textContext _localctx = new Logical_textContext(Context, State);
-		EnterRule(_localctx, 64, RULE_logical_text);
-		int _la;
-		try {
-			int _alt;
-			_localctx = new LogTextContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 360;
-			_la = TokenStream.LA(1);
-			if ( !(_la==STRING || _la==CHAR) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 361;
-			_la = TokenStream.LA(1);
-			if ( !(_la==EQUAL || _la==NOTEQUAL) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 362;
-			_la = TokenStream.LA(1);
-			if ( !(_la==STRING || _la==CHAR) ) {
-			ErrorHandler.RecoverInline(this);
-			}
-			else {
-				ErrorHandler.ReportMatch(this);
-			    Consume();
-			}
-			State = 367;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,31,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					State = 363;
-					_la = TokenStream.LA(1);
-					if ( !(_la==AND || _la==OR) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 364;
-					logical_instructions();
-					}
-					} 
-				}
-				State = 369;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,31,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Logical_varContext : ParserRuleContext {
-		public Logical_varContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_logical_var; } }
-	 
-		public Logical_varContext() { }
-		public virtual void CopyFrom(Logical_varContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class LogVarContext : Logical_varContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] VARIABLE() { return GetTokens(SatukParser.VARIABLE); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE(int i) {
-			return GetToken(SatukParser.VARIABLE, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOT() { return GetToken(SatukParser.NOT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext[] logical_instructions() {
-			return GetRuleContexts<Logical_instructionsContext>();
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions(int i) {
-			return GetRuleContext<Logical_instructionsContext>(i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LE() { return GetToken(SatukParser.LE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GE() { return GetToken(SatukParser.GE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode LT() { return GetToken(SatukParser.LT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode GT() { return GetToken(SatukParser.GT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode EQUAL() { return GetToken(SatukParser.EQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NOTEQUAL() { return GetToken(SatukParser.NOTEQUAL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] OR() { return GetTokens(SatukParser.OR); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OR(int i) {
-			return GetToken(SatukParser.OR, i);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode[] AND() { return GetTokens(SatukParser.AND); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode AND(int i) {
-			return GetToken(SatukParser.AND, i);
-		}
-		public LogVarContext(Logical_varContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterLogVar(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitLogVar(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitLogVar(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Logical_varContext logical_var() {
-		Logical_varContext _localctx = new Logical_varContext(Context, State);
-		EnterRule(_localctx, 66, RULE_logical_var);
-		int _la;
-		try {
-			int _alt;
-			_localctx = new LogVarContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 371;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==NOT) {
-				{
-				State = 370;
-				Match(NOT);
-				}
-			}
-
-			State = 373;
-			Match(VARIABLE);
-			State = 376;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 16307453952L) != 0)) {
-				{
-				State = 374;
-				_la = TokenStream.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 16307453952L) != 0)) ) {
-				ErrorHandler.RecoverInline(this);
-				}
-				else {
-					ErrorHandler.ReportMatch(this);
-				    Consume();
-				}
-				State = 375;
-				Match(VARIABLE);
-				}
-			}
-
-			State = 382;
-			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,34,Context);
-			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					State = 378;
-					_la = TokenStream.LA(1);
-					if ( !(_la==AND || _la==OR) ) {
-					ErrorHandler.RecoverInline(this);
-					}
-					else {
-						ErrorHandler.ReportMatch(this);
-					    Consume();
-					}
-					State = 379;
-					logical_instructions();
-					}
-					} 
-				}
-				State = 384;
-				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,34,Context);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
+			UnrollRecursionContexts(_parentctx);
 		}
 		return _localctx;
 	}
@@ -3401,63 +1898,63 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public If_statementContext if_statement() {
 		If_statementContext _localctx = new If_statementContext(Context, State);
-		EnterRule(_localctx, 68, RULE_if_statement);
+		EnterRule(_localctx, 18, RULE_if_statement);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 385;
+			State = 237;
 			Match(T__8);
-			State = 386;
+			State = 238;
 			Match(LPAREN);
-			State = 387;
-			logical_instructions();
-			State = 388;
+			State = 239;
+			logical_instructions(0);
+			State = 240;
 			Match(RPAREN);
-			State = 389;
+			State = 241;
 			Match(LBRACE);
-			State = 390;
+			State = 242;
 			prog();
-			State = 391;
+			State = 243;
 			Match(RBRACE);
-			State = 402;
+			State = 254;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while (_la==T__9) {
 				{
 				{
-				State = 392;
+				State = 244;
 				Match(T__9);
-				State = 393;
+				State = 245;
 				Match(LPAREN);
-				State = 394;
-				logical_instructions();
-				State = 395;
+				State = 246;
+				logical_instructions(0);
+				State = 247;
 				Match(RPAREN);
-				State = 396;
+				State = 248;
 				Match(LBRACE);
-				State = 397;
+				State = 249;
 				prog();
-				State = 398;
+				State = 250;
 				Match(RBRACE);
 				}
 				}
-				State = 404;
+				State = 256;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 410;
+			State = 262;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			if (_la==T__10) {
 				{
-				State = 405;
+				State = 257;
 				Match(T__10);
-				State = 406;
+				State = 258;
 				Match(LBRACE);
-				State = 407;
+				State = 259;
 				prog();
-				State = 408;
+				State = 260;
 				Match(RBRACE);
 				}
 			}
@@ -3512,132 +2009,24 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public LoopContext loop() {
 		LoopContext _localctx = new LoopContext(Context, State);
-		EnterRule(_localctx, 70, RULE_loop);
+		EnterRule(_localctx, 20, RULE_loop);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 412;
+			State = 264;
 			Match(T__11);
-			State = 413;
+			State = 265;
 			Match(LPAREN);
-			State = 414;
-			logical_instructions();
-			State = 415;
+			State = 266;
+			logical_instructions(0);
+			State = 267;
 			Match(RPAREN);
-			State = 416;
+			State = 268;
 			Match(LBRACE);
-			State = 417;
+			State = 269;
 			prog();
-			State = 418;
+			State = 270;
 			Match(RBRACE);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class Print_contentContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(SatukParser.STRING, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode CHAR() { return GetToken(SatukParser.CHAR, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode BOOL() { return GetToken(SatukParser.BOOL, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
-			return GetRuleContext<ArithmeticsContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Logical_instructionsContext logical_instructions() {
-			return GetRuleContext<Logical_instructionsContext>(0);
-		}
-		public Print_contentContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_print_content; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.EnterPrint_content(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			ISatukListener typedListener = listener as ISatukListener;
-			if (typedListener != null) typedListener.ExitPrint_content(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ISatukVisitor<TResult> typedVisitor = visitor as ISatukVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitPrint_content(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public Print_contentContext print_content() {
-		Print_contentContext _localctx = new Print_contentContext(Context, State);
-		EnterRule(_localctx, 72, RULE_print_content);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 428;
-			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,37,Context) ) {
-			case 1:
-				{
-				State = 420;
-				Match(STRING);
-				}
-				break;
-			case 2:
-				{
-				State = 421;
-				Match(VARIABLE);
-				}
-				break;
-			case 3:
-				{
-				State = 422;
-				Match(CHAR);
-				}
-				break;
-			case 4:
-				{
-				State = 423;
-				Match(INT);
-				}
-				break;
-			case 5:
-				{
-				State = 424;
-				Match(FLOAT);
-				}
-				break;
-			case 6:
-				{
-				State = 425;
-				Match(BOOL);
-				}
-				break;
-			case 7:
-				{
-				State = 426;
-				arithmetics(0);
-				}
-				break;
-			case 8:
-				{
-				State = 427;
-				logical_instructions();
-				}
-				break;
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -3684,22 +2073,22 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public FunctionsContext functions() {
 		FunctionsContext _localctx = new FunctionsContext(Context, State);
-		EnterRule(_localctx, 74, RULE_functions);
+		EnterRule(_localctx, 22, RULE_functions);
 		try {
-			State = 432;
+			State = 274;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,38,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,27,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 430;
+				State = 272;
 				function();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 431;
+				State = 273;
 				constructor();
 				}
 				break;
@@ -3764,57 +2153,57 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public FunctionContext function() {
 		FunctionContext _localctx = new FunctionContext(Context, State);
-		EnterRule(_localctx, 76, RULE_function);
+		EnterRule(_localctx, 24, RULE_function);
 		try {
-			State = 441;
+			State = 283;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case T__13:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 434;
+				State = 276;
 				void_function();
 				}
 				break;
 			case T__5:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 435;
+				State = 277;
 				int_function();
 				}
 				break;
 			case T__6:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 436;
+				State = 278;
 				float_function();
 				}
 				break;
 			case T__3:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 437;
+				State = 279;
 				string_function();
 				}
 				break;
 			case T__4:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 438;
+				State = 280;
 				char_function();
 				}
 				break;
 			case T__2:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 439;
+				State = 281;
 				bool_function();
 				}
 				break;
 			case VARIABLE:
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 440;
+				State = 282;
 				variable_function();
 				}
 				break;
@@ -3883,23 +2272,23 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public ConstructorContext constructor() {
 		ConstructorContext _localctx = new ConstructorContext(Context, State);
-		EnterRule(_localctx, 78, RULE_constructor);
+		EnterRule(_localctx, 26, RULE_constructor);
 		int _la;
 		try {
 			_localctx = new ConstructContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 443;
+			State = 285;
 			Match(VARIABLE);
-			State = 444;
+			State = 286;
 			Match(LPAREN);
-			State = 457;
+			State = 299;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 445;
+				State = 287;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -3908,17 +2297,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 446;
+				State = 288;
 				Match(VARIABLE);
-				State = 452;
+				State = 294;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 447;
+					State = 289;
 					Match(COMMA);
-					State = 448;
+					State = 290;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -3927,27 +2316,27 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 449;
+					State = 291;
 					Match(VARIABLE);
 					}
 					}
-					State = 454;
+					State = 296;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 459;
+				State = 301;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 460;
+			State = 302;
 			Match(RPAREN);
-			State = 461;
+			State = 303;
 			Match(LBRACE);
-			State = 462;
+			State = 304;
 			prog();
-			State = 463;
+			State = 305;
 			Match(RBRACE);
 			}
 		}
@@ -4010,57 +2399,57 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public ReturnContext @return() {
 		ReturnContext _localctx = new ReturnContext(Context, State);
-		EnterRule(_localctx, 80, RULE_return);
+		EnterRule(_localctx, 28, RULE_return);
 		try {
-			State = 472;
+			State = 314;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,42,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,31,Context) ) {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 465;
+				State = 307;
 				void_return();
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 466;
+				State = 308;
 				int_return();
 				}
 				break;
 			case 3:
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 467;
+				State = 309;
 				float_return();
 				}
 				break;
 			case 4:
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 468;
+				State = 310;
 				string_return();
 				}
 				break;
 			case 5:
 				EnterOuterAlt(_localctx, 5);
 				{
-				State = 469;
+				State = 311;
 				char_return();
 				}
 				break;
 			case 6:
 				EnterOuterAlt(_localctx, 6);
 				{
-				State = 470;
+				State = 312;
 				bool_return();
 				}
 				break;
 			case 7:
 				EnterOuterAlt(_localctx, 7);
 				{
-				State = 471;
+				State = 313;
 				variable_return();
 				}
 				break;
@@ -4119,44 +2508,44 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public ClassContext @class() {
 		ClassContext _localctx = new ClassContext(Context, State);
-		EnterRule(_localctx, 82, RULE_class);
+		EnterRule(_localctx, 30, RULE_class);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 474;
+			State = 316;
 			Match(T__12);
-			State = 475;
+			State = 317;
 			Match(VARIABLE);
-			State = 476;
+			State = 318;
 			Match(LBRACE);
-			State = 481;
+			State = 323;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254757624L) != 0)) {
 				{
-				State = 479;
+				State = 321;
 				ErrorHandler.Sync(this);
-				switch ( Interpreter.AdaptivePredict(TokenStream,43,Context) ) {
+				switch ( Interpreter.AdaptivePredict(TokenStream,32,Context) ) {
 				case 1:
 					{
-					State = 477;
+					State = 319;
 					assignment();
 					}
 					break;
 				case 2:
 					{
-					State = 478;
+					State = 320;
 					functions();
 					}
 					break;
 				}
 				}
-				State = 483;
+				State = 325;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 484;
+			State = 326;
 			Match(RBRACE);
 			}
 		}
@@ -4233,41 +2622,41 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Execute_functionContext execute_function() {
 		Execute_functionContext _localctx = new Execute_functionContext(Context, State);
-		EnterRule(_localctx, 84, RULE_execute_function);
+		EnterRule(_localctx, 32, RULE_execute_function);
 		int _la;
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 490;
+			State = 332;
 			ErrorHandler.Sync(this);
-			_alt = Interpreter.AdaptivePredict(TokenStream,45,Context);
+			_alt = Interpreter.AdaptivePredict(TokenStream,34,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					State = 486;
+					State = 328;
 					Match(VARIABLE);
-					State = 487;
+					State = 329;
 					Match(DOT);
 					}
 					} 
 				}
-				State = 492;
+				State = 334;
 				ErrorHandler.Sync(this);
-				_alt = Interpreter.AdaptivePredict(TokenStream,45,Context);
+				_alt = Interpreter.AdaptivePredict(TokenStream,34,Context);
 			}
-			State = 493;
+			State = 335;
 			Match(VARIABLE);
-			State = 494;
+			State = 336;
 			Match(LPAREN);
-			State = 505;
+			State = 347;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) {
 				{
 				{
-				State = 495;
+				State = 337;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -4276,15 +2665,15 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 500;
+				State = 342;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 496;
+					State = 338;
 					Match(COMMA);
-					State = 497;
+					State = 339;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 17732923532771328L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -4295,19 +2684,19 @@ public partial class SatukParser : Parser {
 					}
 					}
 					}
-					State = 502;
+					State = 344;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 507;
+				State = 349;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 508;
+			State = 350;
 			Match(RPAREN);
-			State = 509;
+			State = 351;
 			Match(SEMICOLON);
 			}
 		}
@@ -4375,25 +2764,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Void_functionContext void_function() {
 		Void_functionContext _localctx = new Void_functionContext(Context, State);
-		EnterRule(_localctx, 86, RULE_void_function);
+		EnterRule(_localctx, 34, RULE_void_function);
 		int _la;
 		try {
 			_localctx = new FuncVoidContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 511;
+			State = 353;
 			Match(T__13);
-			State = 512;
+			State = 354;
 			Match(VARIABLE);
-			State = 513;
+			State = 355;
 			Match(LPAREN);
-			State = 526;
+			State = 368;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 514;
+				State = 356;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -4402,17 +2791,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 515;
+				State = 357;
 				Match(VARIABLE);
-				State = 521;
+				State = 363;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 516;
+					State = 358;
 					Match(COMMA);
-					State = 517;
+					State = 359;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -4421,29 +2810,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 518;
+					State = 360;
 					Match(VARIABLE);
 					}
 					}
-					State = 523;
+					State = 365;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 528;
+				State = 370;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 529;
+			State = 371;
 			Match(RPAREN);
-			State = 530;
+			State = 372;
 			Match(LBRACE);
-			State = 531;
+			State = 373;
 			prog();
-			State = 532;
+			State = 374;
 			void_return();
-			State = 533;
+			State = 375;
 			Match(RBRACE);
 			}
 		}
@@ -4511,25 +2900,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Int_functionContext int_function() {
 		Int_functionContext _localctx = new Int_functionContext(Context, State);
-		EnterRule(_localctx, 88, RULE_int_function);
+		EnterRule(_localctx, 36, RULE_int_function);
 		int _la;
 		try {
 			_localctx = new FuncIntContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 535;
+			State = 377;
 			Match(T__5);
-			State = 536;
+			State = 378;
 			Match(VARIABLE);
-			State = 537;
+			State = 379;
 			Match(LPAREN);
-			State = 550;
+			State = 392;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 538;
+				State = 380;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -4538,17 +2927,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 539;
+				State = 381;
 				Match(VARIABLE);
-				State = 545;
+				State = 387;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 540;
+					State = 382;
 					Match(COMMA);
-					State = 541;
+					State = 383;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -4557,29 +2946,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 542;
+					State = 384;
 					Match(VARIABLE);
 					}
 					}
-					State = 547;
+					State = 389;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 552;
+				State = 394;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 553;
+			State = 395;
 			Match(RPAREN);
-			State = 554;
+			State = 396;
 			Match(LBRACE);
-			State = 555;
+			State = 397;
 			prog();
-			State = 556;
+			State = 398;
 			int_return();
-			State = 557;
+			State = 399;
 			Match(RBRACE);
 			}
 		}
@@ -4647,25 +3036,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Float_functionContext float_function() {
 		Float_functionContext _localctx = new Float_functionContext(Context, State);
-		EnterRule(_localctx, 90, RULE_float_function);
+		EnterRule(_localctx, 38, RULE_float_function);
 		int _la;
 		try {
 			_localctx = new FuncFloatContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 559;
+			State = 401;
 			Match(T__6);
-			State = 560;
+			State = 402;
 			Match(VARIABLE);
-			State = 561;
+			State = 403;
 			Match(LPAREN);
-			State = 574;
+			State = 416;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 562;
+				State = 404;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -4674,17 +3063,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 563;
+				State = 405;
 				Match(VARIABLE);
-				State = 569;
+				State = 411;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 564;
+					State = 406;
 					Match(COMMA);
-					State = 565;
+					State = 407;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -4693,29 +3082,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 566;
+					State = 408;
 					Match(VARIABLE);
 					}
 					}
-					State = 571;
+					State = 413;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 576;
+				State = 418;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 577;
+			State = 419;
 			Match(RPAREN);
-			State = 578;
+			State = 420;
 			Match(LBRACE);
-			State = 579;
+			State = 421;
 			prog();
-			State = 580;
+			State = 422;
 			float_return();
-			State = 581;
+			State = 423;
 			Match(RBRACE);
 			}
 		}
@@ -4783,25 +3172,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public String_functionContext string_function() {
 		String_functionContext _localctx = new String_functionContext(Context, State);
-		EnterRule(_localctx, 92, RULE_string_function);
+		EnterRule(_localctx, 40, RULE_string_function);
 		int _la;
 		try {
 			_localctx = new FuncStringContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 583;
+			State = 425;
 			Match(T__3);
-			State = 584;
+			State = 426;
 			Match(VARIABLE);
-			State = 585;
+			State = 427;
 			Match(LPAREN);
-			State = 598;
+			State = 440;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 586;
+				State = 428;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -4810,17 +3199,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 587;
+				State = 429;
 				Match(VARIABLE);
-				State = 593;
+				State = 435;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 588;
+					State = 430;
 					Match(COMMA);
-					State = 589;
+					State = 431;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -4829,29 +3218,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 590;
+					State = 432;
 					Match(VARIABLE);
 					}
 					}
-					State = 595;
+					State = 437;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 600;
+				State = 442;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 601;
+			State = 443;
 			Match(RPAREN);
-			State = 602;
+			State = 444;
 			Match(LBRACE);
-			State = 603;
+			State = 445;
 			prog();
-			State = 604;
+			State = 446;
 			string_return();
-			State = 605;
+			State = 447;
 			Match(RBRACE);
 			}
 		}
@@ -4919,25 +3308,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Char_functionContext char_function() {
 		Char_functionContext _localctx = new Char_functionContext(Context, State);
-		EnterRule(_localctx, 94, RULE_char_function);
+		EnterRule(_localctx, 42, RULE_char_function);
 		int _la;
 		try {
 			_localctx = new FuncCharContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 607;
+			State = 449;
 			Match(T__4);
-			State = 608;
+			State = 450;
 			Match(VARIABLE);
-			State = 609;
+			State = 451;
 			Match(LPAREN);
-			State = 622;
+			State = 464;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 610;
+				State = 452;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -4946,17 +3335,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 611;
+				State = 453;
 				Match(VARIABLE);
-				State = 617;
+				State = 459;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 612;
+					State = 454;
 					Match(COMMA);
-					State = 613;
+					State = 455;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -4965,29 +3354,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 614;
+					State = 456;
 					Match(VARIABLE);
 					}
 					}
-					State = 619;
+					State = 461;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 624;
+				State = 466;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 625;
+			State = 467;
 			Match(RPAREN);
-			State = 626;
+			State = 468;
 			Match(LBRACE);
-			State = 627;
+			State = 469;
 			prog();
-			State = 628;
+			State = 470;
 			char_return();
-			State = 629;
+			State = 471;
 			Match(RBRACE);
 			}
 		}
@@ -5055,25 +3444,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Bool_functionContext bool_function() {
 		Bool_functionContext _localctx = new Bool_functionContext(Context, State);
-		EnterRule(_localctx, 96, RULE_bool_function);
+		EnterRule(_localctx, 44, RULE_bool_function);
 		int _la;
 		try {
 			_localctx = new FuncBoolContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 631;
+			State = 473;
 			Match(T__2);
-			State = 632;
+			State = 474;
 			Match(VARIABLE);
-			State = 633;
+			State = 475;
 			Match(LPAREN);
-			State = 646;
+			State = 488;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 634;
+				State = 476;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -5082,17 +3471,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 635;
+				State = 477;
 				Match(VARIABLE);
-				State = 641;
+				State = 483;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 636;
+					State = 478;
 					Match(COMMA);
-					State = 637;
+					State = 479;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -5101,29 +3490,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 638;
+					State = 480;
 					Match(VARIABLE);
 					}
 					}
-					State = 643;
+					State = 485;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 648;
+				State = 490;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 649;
+			State = 491;
 			Match(RPAREN);
-			State = 650;
+			State = 492;
 			Match(LBRACE);
-			State = 651;
+			State = 493;
 			prog();
-			State = 652;
+			State = 494;
 			bool_return();
-			State = 653;
+			State = 495;
 			Match(RBRACE);
 			}
 		}
@@ -5191,25 +3580,25 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Variable_functionContext variable_function() {
 		Variable_functionContext _localctx = new Variable_functionContext(Context, State);
-		EnterRule(_localctx, 98, RULE_variable_function);
+		EnterRule(_localctx, 46, RULE_variable_function);
 		int _la;
 		try {
 			_localctx = new FuncVarContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 655;
+			State = 497;
 			Match(VARIABLE);
-			State = 656;
+			State = 498;
 			Match(VARIABLE);
-			State = 657;
+			State = 499;
 			Match(LPAREN);
-			State = 670;
+			State = 512;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) {
 				{
 				{
-				State = 658;
+				State = 500;
 				_la = TokenStream.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 				ErrorHandler.RecoverInline(this);
@@ -5218,17 +3607,17 @@ public partial class SatukParser : Parser {
 					ErrorHandler.ReportMatch(this);
 				    Consume();
 				}
-				State = 659;
+				State = 501;
 				Match(VARIABLE);
-				State = 665;
+				State = 507;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					State = 660;
+					State = 502;
 					Match(COMMA);
-					State = 661;
+					State = 503;
 					_la = TokenStream.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 9007199254741240L) != 0)) ) {
 					ErrorHandler.RecoverInline(this);
@@ -5237,29 +3626,29 @@ public partial class SatukParser : Parser {
 						ErrorHandler.ReportMatch(this);
 					    Consume();
 					}
-					State = 662;
+					State = 504;
 					Match(VARIABLE);
 					}
 					}
-					State = 667;
+					State = 509;
 					ErrorHandler.Sync(this);
 					_la = TokenStream.LA(1);
 				}
 				}
 				}
-				State = 672;
+				State = 514;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			}
-			State = 673;
+			State = 515;
 			Match(RPAREN);
-			State = 674;
+			State = 516;
 			Match(LBRACE);
-			State = 675;
+			State = 517;
 			prog();
-			State = 676;
+			State = 518;
 			variable_return();
-			State = 677;
+			State = 519;
 			Match(RBRACE);
 			}
 		}
@@ -5302,13 +3691,13 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Void_returnContext void_return() {
 		Void_returnContext _localctx = new Void_returnContext(Context, State);
-		EnterRule(_localctx, 100, RULE_void_return);
+		EnterRule(_localctx, 48, RULE_void_return);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 679;
+			State = 521;
 			Match(T__14);
-			State = 680;
+			State = 522;
 			Match(SEMICOLON);
 			}
 		}
@@ -5339,14 +3728,8 @@ public partial class SatukParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(SatukParser.INT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Arithmetics_intContext arithmetics_int() {
-			return GetRuleContext<Arithmetics_intContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Int_incContext int_inc() {
-			return GetRuleContext<Int_incContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Int_decContext int_dec() {
-			return GetRuleContext<Int_decContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
 		}
 		public RetIntContext(Int_returnContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
@@ -5370,48 +3753,36 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Int_returnContext int_return() {
 		Int_returnContext _localctx = new Int_returnContext(Context, State);
-		EnterRule(_localctx, 102, RULE_int_return);
+		EnterRule(_localctx, 50, RULE_int_return);
 		try {
 			_localctx = new RetIntContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 682;
+			State = 524;
 			Match(T__14);
-			State = 688;
+			State = 528;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,62,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,51,Context) ) {
 			case 1:
 				{
-				State = 683;
+				State = 525;
 				Match(INT);
 				}
 				break;
 			case 2:
 				{
-				State = 684;
+				State = 526;
 				Match(VARIABLE);
 				}
 				break;
 			case 3:
 				{
-				State = 685;
-				arithmetics_int();
-				}
-				break;
-			case 4:
-				{
-				State = 686;
-				int_inc();
-				}
-				break;
-			case 5:
-				{
-				State = 687;
-				int_dec();
+				State = 527;
+				arithmetics(0);
 				}
 				break;
 			}
-			State = 690;
+			State = 530;
 			Match(SEMICOLON);
 			}
 		}
@@ -5442,14 +3813,8 @@ public partial class SatukParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode SEMICOLON() { return GetToken(SatukParser.SEMICOLON, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode FLOAT() { return GetToken(SatukParser.FLOAT, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode VARIABLE() { return GetToken(SatukParser.VARIABLE, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public Arithmetics_floatContext arithmetics_float() {
-			return GetRuleContext<Arithmetics_floatContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Float_incContext float_inc() {
-			return GetRuleContext<Float_incContext>(0);
-		}
-		[System.Diagnostics.DebuggerNonUserCode] public Float_decContext float_dec() {
-			return GetRuleContext<Float_decContext>(0);
+		[System.Diagnostics.DebuggerNonUserCode] public ArithmeticsContext arithmetics() {
+			return GetRuleContext<ArithmeticsContext>(0);
 		}
 		public RetFloatContext(Float_returnContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
@@ -5473,48 +3838,36 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Float_returnContext float_return() {
 		Float_returnContext _localctx = new Float_returnContext(Context, State);
-		EnterRule(_localctx, 104, RULE_float_return);
+		EnterRule(_localctx, 52, RULE_float_return);
 		try {
 			_localctx = new RetFloatContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 692;
+			State = 532;
 			Match(T__14);
-			State = 698;
+			State = 536;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,63,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,52,Context) ) {
 			case 1:
 				{
-				State = 693;
+				State = 533;
 				Match(FLOAT);
 				}
 				break;
 			case 2:
 				{
-				State = 694;
+				State = 534;
 				Match(VARIABLE);
 				}
 				break;
 			case 3:
 				{
-				State = 695;
-				arithmetics_float();
-				}
-				break;
-			case 4:
-				{
-				State = 696;
-				float_inc();
-				}
-				break;
-			case 5:
-				{
-				State = 697;
-				float_dec();
+				State = 535;
+				arithmetics(0);
 				}
 				break;
 			}
-			State = 700;
+			State = 538;
 			Match(SEMICOLON);
 			}
 		}
@@ -5567,15 +3920,15 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public String_returnContext string_return() {
 		String_returnContext _localctx = new String_returnContext(Context, State);
-		EnterRule(_localctx, 106, RULE_string_return);
+		EnterRule(_localctx, 54, RULE_string_return);
 		int _la;
 		try {
 			_localctx = new RetStringContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 702;
+			State = 540;
 			Match(T__14);
-			State = 703;
+			State = 541;
 			_la = TokenStream.LA(1);
 			if ( !(_la==STRING || _la==VARIABLE) ) {
 			ErrorHandler.RecoverInline(this);
@@ -5584,7 +3937,7 @@ public partial class SatukParser : Parser {
 				ErrorHandler.ReportMatch(this);
 			    Consume();
 			}
-			State = 704;
+			State = 542;
 			Match(SEMICOLON);
 			}
 		}
@@ -5637,15 +3990,15 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Char_returnContext char_return() {
 		Char_returnContext _localctx = new Char_returnContext(Context, State);
-		EnterRule(_localctx, 108, RULE_char_return);
+		EnterRule(_localctx, 56, RULE_char_return);
 		int _la;
 		try {
 			_localctx = new RetCharContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 706;
+			State = 544;
 			Match(T__14);
-			State = 707;
+			State = 545;
 			_la = TokenStream.LA(1);
 			if ( !(_la==CHAR || _la==VARIABLE) ) {
 			ErrorHandler.RecoverInline(this);
@@ -5654,7 +4007,7 @@ public partial class SatukParser : Parser {
 				ErrorHandler.ReportMatch(this);
 			    Consume();
 			}
-			State = 708;
+			State = 546;
 			Match(SEMICOLON);
 			}
 		}
@@ -5710,36 +4063,36 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Bool_returnContext bool_return() {
 		Bool_returnContext _localctx = new Bool_returnContext(Context, State);
-		EnterRule(_localctx, 110, RULE_bool_return);
+		EnterRule(_localctx, 58, RULE_bool_return);
 		try {
 			_localctx = new RetBoolContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 710;
+			State = 548;
 			Match(T__14);
-			State = 714;
+			State = 552;
 			ErrorHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(TokenStream,64,Context) ) {
+			switch ( Interpreter.AdaptivePredict(TokenStream,53,Context) ) {
 			case 1:
 				{
-				State = 711;
+				State = 549;
 				Match(BOOL);
 				}
 				break;
 			case 2:
 				{
-				State = 712;
+				State = 550;
 				Match(VARIABLE);
 				}
 				break;
 			case 3:
 				{
-				State = 713;
-				logical_instructions();
+				State = 551;
+				logical_instructions(0);
 				}
 				break;
 			}
-			State = 716;
+			State = 554;
 			Match(SEMICOLON);
 			}
 		}
@@ -5791,16 +4144,16 @@ public partial class SatukParser : Parser {
 	[RuleVersion(0)]
 	public Variable_returnContext variable_return() {
 		Variable_returnContext _localctx = new Variable_returnContext(Context, State);
-		EnterRule(_localctx, 112, RULE_variable_return);
+		EnterRule(_localctx, 60, RULE_variable_return);
 		try {
 			_localctx = new RetVarContext(_localctx);
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 718;
+			State = 556;
 			Match(T__14);
-			State = 719;
+			State = 557;
 			Match(VARIABLE);
-			State = 720;
+			State = 558;
 			Match(SEMICOLON);
 			}
 		}
@@ -5817,7 +4170,8 @@ public partial class SatukParser : Parser {
 
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 19: return arithmetics_sempred((ArithmeticsContext)_localctx, predIndex);
+		case 6: return arithmetics_sempred((ArithmeticsContext)_localctx, predIndex);
+		case 8: return logical_instructions_sempred((Logical_instructionsContext)_localctx, predIndex);
 		}
 		return true;
 	}
@@ -5828,252 +4182,204 @@ public partial class SatukParser : Parser {
 		}
 		return true;
 	}
+	private bool logical_instructions_sempred(Logical_instructionsContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 2: return Precpred(Context, 3);
+		case 3: return Precpred(Context, 2);
+		}
+		return true;
+	}
 
 	private static int[] _serializedATN = {
-		4,1,53,723,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		4,1,53,561,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
 		7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,
 		2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,
 		2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,
-		2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,33,7,33,2,34,7,34,2,35,7,35,
-		2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,39,2,40,7,40,2,41,7,41,2,42,7,42,
-		2,43,7,43,2,44,7,44,2,45,7,45,2,46,7,46,2,47,7,47,2,48,7,48,2,49,7,49,
-		2,50,7,50,2,51,7,51,2,52,7,52,2,53,7,53,2,54,7,54,2,55,7,55,2,56,7,56,
-		1,0,5,0,116,8,0,10,0,12,0,119,9,0,1,0,5,0,122,8,0,10,0,12,0,125,9,0,1,
-		0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,5,1,138,8,1,10,1,12,1,141,9,
-		1,1,2,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,
-		1,3,1,3,1,3,1,3,3,3,164,8,3,1,3,1,3,1,4,1,4,1,4,1,4,3,4,172,8,4,1,5,1,
-		5,1,5,1,5,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,3,7,186,8,7,1,8,1,8,1,8,1,8,
-		1,9,1,9,1,9,1,9,3,9,196,8,9,1,10,1,10,1,10,1,10,1,11,1,11,1,11,1,11,3,
-		11,206,8,11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,1,14,
-		3,14,220,8,14,1,15,1,15,1,15,1,15,1,16,1,16,1,16,1,16,1,17,1,17,1,17,1,
-		17,1,17,1,17,1,17,1,17,1,17,5,17,239,8,17,10,17,12,17,242,9,17,5,17,244,
-		8,17,10,17,12,17,247,9,17,1,17,3,17,250,8,17,1,18,3,18,253,8,18,1,18,1,
-		18,1,18,1,18,1,19,1,19,1,19,1,19,1,19,1,19,3,19,265,8,19,1,19,1,19,1,19,
-		1,19,1,19,1,19,5,19,273,8,19,10,19,12,19,276,9,19,1,20,1,20,1,20,4,20,
-		281,8,20,11,20,12,20,282,1,21,1,21,1,21,4,21,288,8,21,11,21,12,21,289,
-		1,22,1,22,1,22,1,22,1,22,1,22,3,22,298,8,22,1,23,1,23,1,23,3,23,303,8,
-		23,1,24,1,24,1,24,3,24,308,8,24,1,25,1,25,1,25,3,25,313,8,25,1,26,1,26,
-		1,26,3,26,318,8,26,1,27,1,27,1,27,3,27,323,8,27,1,28,1,28,1,28,3,28,328,
-		8,28,1,29,1,29,1,29,1,29,3,29,334,8,29,1,30,3,30,337,8,30,1,30,1,30,1,
-		30,3,30,342,8,30,1,30,1,30,5,30,346,8,30,10,30,12,30,349,9,30,1,31,1,31,
-		1,31,1,31,1,31,5,31,356,8,31,10,31,12,31,359,9,31,1,32,1,32,1,32,1,32,
-		1,32,5,32,366,8,32,10,32,12,32,369,9,32,1,33,3,33,372,8,33,1,33,1,33,1,
-		33,3,33,377,8,33,1,33,1,33,5,33,381,8,33,10,33,12,33,384,9,33,1,34,1,34,
-		1,34,1,34,1,34,1,34,1,34,1,34,1,34,1,34,1,34,1,34,1,34,1,34,1,34,5,34,
-		401,8,34,10,34,12,34,404,9,34,1,34,1,34,1,34,1,34,1,34,3,34,411,8,34,1,
-		35,1,35,1,35,1,35,1,35,1,35,1,35,1,35,1,36,1,36,1,36,1,36,1,36,1,36,1,
-		36,1,36,3,36,429,8,36,1,37,1,37,3,37,433,8,37,1,38,1,38,1,38,1,38,1,38,
-		1,38,1,38,3,38,442,8,38,1,39,1,39,1,39,1,39,1,39,1,39,1,39,5,39,451,8,
-		39,10,39,12,39,454,9,39,5,39,456,8,39,10,39,12,39,459,9,39,1,39,1,39,1,
-		39,1,39,1,39,1,40,1,40,1,40,1,40,1,40,1,40,1,40,3,40,473,8,40,1,41,1,41,
-		1,41,1,41,1,41,5,41,480,8,41,10,41,12,41,483,9,41,1,41,1,41,1,42,1,42,
-		5,42,489,8,42,10,42,12,42,492,9,42,1,42,1,42,1,42,1,42,1,42,5,42,499,8,
-		42,10,42,12,42,502,9,42,5,42,504,8,42,10,42,12,42,507,9,42,1,42,1,42,1,
-		42,1,43,1,43,1,43,1,43,1,43,1,43,1,43,1,43,5,43,520,8,43,10,43,12,43,523,
-		9,43,5,43,525,8,43,10,43,12,43,528,9,43,1,43,1,43,1,43,1,43,1,43,1,43,
-		1,44,1,44,1,44,1,44,1,44,1,44,1,44,1,44,5,44,544,8,44,10,44,12,44,547,
-		9,44,5,44,549,8,44,10,44,12,44,552,9,44,1,44,1,44,1,44,1,44,1,44,1,44,
-		1,45,1,45,1,45,1,45,1,45,1,45,1,45,1,45,5,45,568,8,45,10,45,12,45,571,
-		9,45,5,45,573,8,45,10,45,12,45,576,9,45,1,45,1,45,1,45,1,45,1,45,1,45,
-		1,46,1,46,1,46,1,46,1,46,1,46,1,46,1,46,5,46,592,8,46,10,46,12,46,595,
-		9,46,5,46,597,8,46,10,46,12,46,600,9,46,1,46,1,46,1,46,1,46,1,46,1,46,
-		1,47,1,47,1,47,1,47,1,47,1,47,1,47,1,47,5,47,616,8,47,10,47,12,47,619,
-		9,47,5,47,621,8,47,10,47,12,47,624,9,47,1,47,1,47,1,47,1,47,1,47,1,47,
-		1,48,1,48,1,48,1,48,1,48,1,48,1,48,1,48,5,48,640,8,48,10,48,12,48,643,
-		9,48,5,48,645,8,48,10,48,12,48,648,9,48,1,48,1,48,1,48,1,48,1,48,1,48,
-		1,49,1,49,1,49,1,49,1,49,1,49,1,49,1,49,5,49,664,8,49,10,49,12,49,667,
-		9,49,5,49,669,8,49,10,49,12,49,672,9,49,1,49,1,49,1,49,1,49,1,49,1,49,
-		1,50,1,50,1,50,1,51,1,51,1,51,1,51,1,51,1,51,3,51,689,8,51,1,51,1,51,1,
-		52,1,52,1,52,1,52,1,52,1,52,3,52,699,8,52,1,52,1,52,1,53,1,53,1,53,1,53,
-		1,54,1,54,1,54,1,54,1,55,1,55,1,55,1,55,3,55,715,8,55,1,55,1,55,1,56,1,
-		56,1,56,1,56,1,56,0,1,38,57,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,
-		32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,
-		80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,0,14,1,0,48,
-		53,2,0,3,7,53,53,3,0,48,48,51,51,53,53,1,0,40,42,1,0,38,39,2,0,48,48,53,
-		53,1,0,38,46,2,0,51,51,53,53,2,0,30,30,33,33,1,0,34,35,2,0,26,27,30,33,
-		2,0,49,49,52,52,2,0,49,49,53,53,1,0,52,53,775,0,117,1,0,0,0,2,139,1,0,
-		0,0,4,142,1,0,0,0,6,163,1,0,0,0,8,167,1,0,0,0,10,173,1,0,0,0,12,177,1,
-		0,0,0,14,181,1,0,0,0,16,187,1,0,0,0,18,191,1,0,0,0,20,197,1,0,0,0,22,201,
-		1,0,0,0,24,207,1,0,0,0,26,211,1,0,0,0,28,215,1,0,0,0,30,221,1,0,0,0,32,
-		225,1,0,0,0,34,229,1,0,0,0,36,252,1,0,0,0,38,264,1,0,0,0,40,277,1,0,0,
-		0,42,284,1,0,0,0,44,297,1,0,0,0,46,299,1,0,0,0,48,304,1,0,0,0,50,309,1,
-		0,0,0,52,314,1,0,0,0,54,319,1,0,0,0,56,324,1,0,0,0,58,333,1,0,0,0,60,336,
-		1,0,0,0,62,350,1,0,0,0,64,360,1,0,0,0,66,371,1,0,0,0,68,385,1,0,0,0,70,
-		412,1,0,0,0,72,428,1,0,0,0,74,432,1,0,0,0,76,441,1,0,0,0,78,443,1,0,0,
-		0,80,472,1,0,0,0,82,474,1,0,0,0,84,490,1,0,0,0,86,511,1,0,0,0,88,535,1,
-		0,0,0,90,559,1,0,0,0,92,583,1,0,0,0,94,607,1,0,0,0,96,631,1,0,0,0,98,655,
-		1,0,0,0,100,679,1,0,0,0,102,682,1,0,0,0,104,692,1,0,0,0,106,702,1,0,0,
-		0,108,706,1,0,0,0,110,710,1,0,0,0,112,718,1,0,0,0,114,116,3,82,41,0,115,
-		114,1,0,0,0,116,119,1,0,0,0,117,115,1,0,0,0,117,118,1,0,0,0,118,123,1,
-		0,0,0,119,117,1,0,0,0,120,122,3,74,37,0,121,120,1,0,0,0,122,125,1,0,0,
-		0,123,121,1,0,0,0,123,124,1,0,0,0,124,126,1,0,0,0,125,123,1,0,0,0,126,
-		127,5,1,0,0,127,128,5,18,0,0,128,129,3,2,1,0,129,130,3,80,40,0,130,131,
-		5,19,0,0,131,1,1,0,0,0,132,138,3,6,3,0,133,138,3,68,34,0,134,138,3,70,
-		35,0,135,138,3,4,2,0,136,138,3,84,42,0,137,132,1,0,0,0,137,133,1,0,0,0,
-		137,134,1,0,0,0,137,135,1,0,0,0,137,136,1,0,0,0,138,141,1,0,0,0,139,137,
-		1,0,0,0,139,140,1,0,0,0,140,3,1,0,0,0,141,139,1,0,0,0,142,143,5,2,0,0,
-		143,144,5,16,0,0,144,145,3,72,36,0,145,146,5,17,0,0,146,147,5,22,0,0,147,
-		5,1,0,0,0,148,164,3,18,9,0,149,164,3,14,7,0,150,164,3,28,14,0,151,164,
-		3,8,4,0,152,164,3,24,12,0,153,164,3,22,11,0,154,164,3,32,16,0,155,164,
-		3,10,5,0,156,164,3,34,17,0,157,164,3,12,6,0,158,164,3,20,10,0,159,164,
-		3,30,15,0,160,164,3,26,13,0,161,164,3,16,8,0,162,164,3,36,18,0,163,148,
-		1,0,0,0,163,149,1,0,0,0,163,150,1,0,0,0,163,151,1,0,0,0,163,152,1,0,0,
-		0,163,153,1,0,0,0,163,154,1,0,0,0,163,155,1,0,0,0,163,156,1,0,0,0,163,
-		157,1,0,0,0,163,158,1,0,0,0,163,159,1,0,0,0,163,160,1,0,0,0,163,161,1,
-		0,0,0,163,162,1,0,0,0,164,165,1,0,0,0,165,166,5,22,0,0,166,7,1,0,0,0,167,
-		168,5,3,0,0,168,171,5,53,0,0,169,170,5,25,0,0,170,172,5,50,0,0,171,169,
-		1,0,0,0,171,172,1,0,0,0,172,9,1,0,0,0,173,174,5,53,0,0,174,175,5,25,0,
-		0,175,176,3,58,29,0,176,11,1,0,0,0,177,178,5,53,0,0,178,179,5,25,0,0,179,
-		180,5,50,0,0,180,13,1,0,0,0,181,182,5,4,0,0,182,185,5,53,0,0,183,184,5,
-		25,0,0,184,186,5,49,0,0,185,183,1,0,0,0,185,186,1,0,0,0,186,15,1,0,0,0,
-		187,188,5,53,0,0,188,189,5,25,0,0,189,190,5,49,0,0,190,17,1,0,0,0,191,
-		192,5,5,0,0,192,195,5,53,0,0,193,194,5,25,0,0,194,196,5,52,0,0,195,193,
-		1,0,0,0,195,196,1,0,0,0,196,19,1,0,0,0,197,198,5,53,0,0,198,199,5,25,0,
-		0,199,200,5,52,0,0,200,21,1,0,0,0,201,202,5,6,0,0,202,205,5,53,0,0,203,
-		204,5,25,0,0,204,206,5,48,0,0,205,203,1,0,0,0,205,206,1,0,0,0,206,23,1,
-		0,0,0,207,208,5,53,0,0,208,209,5,25,0,0,209,210,3,40,20,0,210,25,1,0,0,
-		0,211,212,5,53,0,0,212,213,5,25,0,0,213,214,5,48,0,0,214,27,1,0,0,0,215,
-		216,5,7,0,0,216,219,5,53,0,0,217,218,5,25,0,0,218,220,5,51,0,0,219,217,
-		1,0,0,0,219,220,1,0,0,0,220,29,1,0,0,0,221,222,5,53,0,0,222,223,5,25,0,
-		0,223,224,5,51,0,0,224,31,1,0,0,0,225,226,5,53,0,0,226,227,5,25,0,0,227,
-		228,3,42,21,0,228,33,1,0,0,0,229,230,5,53,0,0,230,249,5,53,0,0,231,232,
-		5,25,0,0,232,233,5,8,0,0,233,234,5,53,0,0,234,245,5,16,0,0,235,240,7,0,
-		0,0,236,237,5,23,0,0,237,239,7,0,0,0,238,236,1,0,0,0,239,242,1,0,0,0,240,
-		238,1,0,0,0,240,241,1,0,0,0,241,244,1,0,0,0,242,240,1,0,0,0,243,235,1,
-		0,0,0,244,247,1,0,0,0,245,243,1,0,0,0,245,246,1,0,0,0,246,248,1,0,0,0,
-		247,245,1,0,0,0,248,250,5,17,0,0,249,231,1,0,0,0,249,250,1,0,0,0,250,35,
-		1,0,0,0,251,253,7,1,0,0,252,251,1,0,0,0,252,253,1,0,0,0,253,254,1,0,0,
-		0,254,255,5,53,0,0,255,256,5,25,0,0,256,257,3,84,42,0,257,37,1,0,0,0,258,
-		259,6,19,-1,0,259,260,5,16,0,0,260,261,3,38,19,0,261,262,5,17,0,0,262,
-		265,1,0,0,0,263,265,7,2,0,0,264,258,1,0,0,0,264,263,1,0,0,0,265,274,1,
-		0,0,0,266,267,10,4,0,0,267,268,7,3,0,0,268,273,3,38,19,5,269,270,10,3,
-		0,0,270,271,7,4,0,0,271,273,3,38,19,4,272,266,1,0,0,0,272,269,1,0,0,0,
-		273,276,1,0,0,0,274,272,1,0,0,0,274,275,1,0,0,0,275,39,1,0,0,0,276,274,
-		1,0,0,0,277,280,7,5,0,0,278,279,7,6,0,0,279,281,7,5,0,0,280,278,1,0,0,
-		0,281,282,1,0,0,0,282,280,1,0,0,0,282,283,1,0,0,0,283,41,1,0,0,0,284,287,
-		7,7,0,0,285,286,7,6,0,0,286,288,7,7,0,0,287,285,1,0,0,0,288,289,1,0,0,
-		0,289,287,1,0,0,0,289,290,1,0,0,0,290,43,1,0,0,0,291,298,3,46,23,0,292,
-		298,3,48,24,0,293,298,3,50,25,0,294,298,3,52,26,0,295,298,3,54,27,0,296,
-		298,3,56,28,0,297,291,1,0,0,0,297,292,1,0,0,0,297,293,1,0,0,0,297,294,
-		1,0,0,0,297,295,1,0,0,0,297,296,1,0,0,0,298,45,1,0,0,0,299,300,5,48,0,
-		0,300,302,5,36,0,0,301,303,5,22,0,0,302,301,1,0,0,0,302,303,1,0,0,0,303,
-		47,1,0,0,0,304,305,5,51,0,0,305,307,5,36,0,0,306,308,5,22,0,0,307,306,
-		1,0,0,0,307,308,1,0,0,0,308,49,1,0,0,0,309,310,5,48,0,0,310,312,5,37,0,
-		0,311,313,5,22,0,0,312,311,1,0,0,0,312,313,1,0,0,0,313,51,1,0,0,0,314,
-		315,5,51,0,0,315,317,5,37,0,0,316,318,5,22,0,0,317,316,1,0,0,0,317,318,
-		1,0,0,0,318,53,1,0,0,0,319,320,5,53,0,0,320,322,5,36,0,0,321,323,5,22,
-		0,0,322,321,1,0,0,0,322,323,1,0,0,0,323,55,1,0,0,0,324,325,5,53,0,0,325,
-		327,5,37,0,0,326,328,5,22,0,0,327,326,1,0,0,0,327,328,1,0,0,0,328,57,1,
-		0,0,0,329,334,3,60,30,0,330,334,3,62,31,0,331,334,3,64,32,0,332,334,3,
-		66,33,0,333,329,1,0,0,0,333,330,1,0,0,0,333,331,1,0,0,0,333,332,1,0,0,
-		0,334,59,1,0,0,0,335,337,5,28,0,0,336,335,1,0,0,0,336,337,1,0,0,0,337,
-		338,1,0,0,0,338,341,5,50,0,0,339,340,7,8,0,0,340,342,5,50,0,0,341,339,
-		1,0,0,0,341,342,1,0,0,0,342,347,1,0,0,0,343,344,7,9,0,0,344,346,3,58,29,
-		0,345,343,1,0,0,0,346,349,1,0,0,0,347,345,1,0,0,0,347,348,1,0,0,0,348,
-		61,1,0,0,0,349,347,1,0,0,0,350,351,7,2,0,0,351,352,7,10,0,0,352,357,7,
-		2,0,0,353,354,7,9,0,0,354,356,3,58,29,0,355,353,1,0,0,0,356,359,1,0,0,
-		0,357,355,1,0,0,0,357,358,1,0,0,0,358,63,1,0,0,0,359,357,1,0,0,0,360,361,
-		7,11,0,0,361,362,7,8,0,0,362,367,7,11,0,0,363,364,7,9,0,0,364,366,3,58,
-		29,0,365,363,1,0,0,0,366,369,1,0,0,0,367,365,1,0,0,0,367,368,1,0,0,0,368,
-		65,1,0,0,0,369,367,1,0,0,0,370,372,5,28,0,0,371,370,1,0,0,0,371,372,1,
-		0,0,0,372,373,1,0,0,0,373,376,5,53,0,0,374,375,7,10,0,0,375,377,5,53,0,
-		0,376,374,1,0,0,0,376,377,1,0,0,0,377,382,1,0,0,0,378,379,7,9,0,0,379,
-		381,3,58,29,0,380,378,1,0,0,0,381,384,1,0,0,0,382,380,1,0,0,0,382,383,
-		1,0,0,0,383,67,1,0,0,0,384,382,1,0,0,0,385,386,5,9,0,0,386,387,5,16,0,
-		0,387,388,3,58,29,0,388,389,5,17,0,0,389,390,5,18,0,0,390,391,3,2,1,0,
-		391,402,5,19,0,0,392,393,5,10,0,0,393,394,5,16,0,0,394,395,3,58,29,0,395,
-		396,5,17,0,0,396,397,5,18,0,0,397,398,3,2,1,0,398,399,5,19,0,0,399,401,
-		1,0,0,0,400,392,1,0,0,0,401,404,1,0,0,0,402,400,1,0,0,0,402,403,1,0,0,
-		0,403,410,1,0,0,0,404,402,1,0,0,0,405,406,5,11,0,0,406,407,5,18,0,0,407,
-		408,3,2,1,0,408,409,5,19,0,0,409,411,1,0,0,0,410,405,1,0,0,0,410,411,1,
-		0,0,0,411,69,1,0,0,0,412,413,5,12,0,0,413,414,5,16,0,0,414,415,3,58,29,
-		0,415,416,5,17,0,0,416,417,5,18,0,0,417,418,3,2,1,0,418,419,5,19,0,0,419,
-		71,1,0,0,0,420,429,5,49,0,0,421,429,5,53,0,0,422,429,5,52,0,0,423,429,
-		5,48,0,0,424,429,5,51,0,0,425,429,5,50,0,0,426,429,3,38,19,0,427,429,3,
-		58,29,0,428,420,1,0,0,0,428,421,1,0,0,0,428,422,1,0,0,0,428,423,1,0,0,
-		0,428,424,1,0,0,0,428,425,1,0,0,0,428,426,1,0,0,0,428,427,1,0,0,0,429,
-		73,1,0,0,0,430,433,3,76,38,0,431,433,3,78,39,0,432,430,1,0,0,0,432,431,
-		1,0,0,0,433,75,1,0,0,0,434,442,3,86,43,0,435,442,3,88,44,0,436,442,3,90,
-		45,0,437,442,3,92,46,0,438,442,3,94,47,0,439,442,3,96,48,0,440,442,3,98,
-		49,0,441,434,1,0,0,0,441,435,1,0,0,0,441,436,1,0,0,0,441,437,1,0,0,0,441,
-		438,1,0,0,0,441,439,1,0,0,0,441,440,1,0,0,0,442,77,1,0,0,0,443,444,5,53,
-		0,0,444,457,5,16,0,0,445,446,7,1,0,0,446,452,5,53,0,0,447,448,5,23,0,0,
-		448,449,7,1,0,0,449,451,5,53,0,0,450,447,1,0,0,0,451,454,1,0,0,0,452,450,
-		1,0,0,0,452,453,1,0,0,0,453,456,1,0,0,0,454,452,1,0,0,0,455,445,1,0,0,
-		0,456,459,1,0,0,0,457,455,1,0,0,0,457,458,1,0,0,0,458,460,1,0,0,0,459,
-		457,1,0,0,0,460,461,5,17,0,0,461,462,5,18,0,0,462,463,3,2,1,0,463,464,
-		5,19,0,0,464,79,1,0,0,0,465,473,3,100,50,0,466,473,3,102,51,0,467,473,
-		3,104,52,0,468,473,3,106,53,0,469,473,3,108,54,0,470,473,3,110,55,0,471,
-		473,3,112,56,0,472,465,1,0,0,0,472,466,1,0,0,0,472,467,1,0,0,0,472,468,
-		1,0,0,0,472,469,1,0,0,0,472,470,1,0,0,0,472,471,1,0,0,0,473,81,1,0,0,0,
-		474,475,5,13,0,0,475,476,5,53,0,0,476,481,5,18,0,0,477,480,3,6,3,0,478,
-		480,3,74,37,0,479,477,1,0,0,0,479,478,1,0,0,0,480,483,1,0,0,0,481,479,
-		1,0,0,0,481,482,1,0,0,0,482,484,1,0,0,0,483,481,1,0,0,0,484,485,5,19,0,
-		0,485,83,1,0,0,0,486,487,5,53,0,0,487,489,5,24,0,0,488,486,1,0,0,0,489,
-		492,1,0,0,0,490,488,1,0,0,0,490,491,1,0,0,0,491,493,1,0,0,0,492,490,1,
-		0,0,0,493,494,5,53,0,0,494,505,5,16,0,0,495,500,7,0,0,0,496,497,5,23,0,
-		0,497,499,7,0,0,0,498,496,1,0,0,0,499,502,1,0,0,0,500,498,1,0,0,0,500,
-		501,1,0,0,0,501,504,1,0,0,0,502,500,1,0,0,0,503,495,1,0,0,0,504,507,1,
-		0,0,0,505,503,1,0,0,0,505,506,1,0,0,0,506,508,1,0,0,0,507,505,1,0,0,0,
-		508,509,5,17,0,0,509,510,5,22,0,0,510,85,1,0,0,0,511,512,5,14,0,0,512,
-		513,5,53,0,0,513,526,5,16,0,0,514,515,7,1,0,0,515,521,5,53,0,0,516,517,
-		5,23,0,0,517,518,7,1,0,0,518,520,5,53,0,0,519,516,1,0,0,0,520,523,1,0,
-		0,0,521,519,1,0,0,0,521,522,1,0,0,0,522,525,1,0,0,0,523,521,1,0,0,0,524,
-		514,1,0,0,0,525,528,1,0,0,0,526,524,1,0,0,0,526,527,1,0,0,0,527,529,1,
-		0,0,0,528,526,1,0,0,0,529,530,5,17,0,0,530,531,5,18,0,0,531,532,3,2,1,
-		0,532,533,3,100,50,0,533,534,5,19,0,0,534,87,1,0,0,0,535,536,5,6,0,0,536,
-		537,5,53,0,0,537,550,5,16,0,0,538,539,7,1,0,0,539,545,5,53,0,0,540,541,
-		5,23,0,0,541,542,7,1,0,0,542,544,5,53,0,0,543,540,1,0,0,0,544,547,1,0,
-		0,0,545,543,1,0,0,0,545,546,1,0,0,0,546,549,1,0,0,0,547,545,1,0,0,0,548,
-		538,1,0,0,0,549,552,1,0,0,0,550,548,1,0,0,0,550,551,1,0,0,0,551,553,1,
-		0,0,0,552,550,1,0,0,0,553,554,5,17,0,0,554,555,5,18,0,0,555,556,3,2,1,
-		0,556,557,3,102,51,0,557,558,5,19,0,0,558,89,1,0,0,0,559,560,5,7,0,0,560,
-		561,5,53,0,0,561,574,5,16,0,0,562,563,7,1,0,0,563,569,5,53,0,0,564,565,
-		5,23,0,0,565,566,7,1,0,0,566,568,5,53,0,0,567,564,1,0,0,0,568,571,1,0,
-		0,0,569,567,1,0,0,0,569,570,1,0,0,0,570,573,1,0,0,0,571,569,1,0,0,0,572,
-		562,1,0,0,0,573,576,1,0,0,0,574,572,1,0,0,0,574,575,1,0,0,0,575,577,1,
-		0,0,0,576,574,1,0,0,0,577,578,5,17,0,0,578,579,5,18,0,0,579,580,3,2,1,
-		0,580,581,3,104,52,0,581,582,5,19,0,0,582,91,1,0,0,0,583,584,5,4,0,0,584,
-		585,5,53,0,0,585,598,5,16,0,0,586,587,7,1,0,0,587,593,5,53,0,0,588,589,
-		5,23,0,0,589,590,7,1,0,0,590,592,5,53,0,0,591,588,1,0,0,0,592,595,1,0,
-		0,0,593,591,1,0,0,0,593,594,1,0,0,0,594,597,1,0,0,0,595,593,1,0,0,0,596,
-		586,1,0,0,0,597,600,1,0,0,0,598,596,1,0,0,0,598,599,1,0,0,0,599,601,1,
-		0,0,0,600,598,1,0,0,0,601,602,5,17,0,0,602,603,5,18,0,0,603,604,3,2,1,
-		0,604,605,3,106,53,0,605,606,5,19,0,0,606,93,1,0,0,0,607,608,5,5,0,0,608,
-		609,5,53,0,0,609,622,5,16,0,0,610,611,7,1,0,0,611,617,5,53,0,0,612,613,
-		5,23,0,0,613,614,7,1,0,0,614,616,5,53,0,0,615,612,1,0,0,0,616,619,1,0,
-		0,0,617,615,1,0,0,0,617,618,1,0,0,0,618,621,1,0,0,0,619,617,1,0,0,0,620,
-		610,1,0,0,0,621,624,1,0,0,0,622,620,1,0,0,0,622,623,1,0,0,0,623,625,1,
-		0,0,0,624,622,1,0,0,0,625,626,5,17,0,0,626,627,5,18,0,0,627,628,3,2,1,
-		0,628,629,3,108,54,0,629,630,5,19,0,0,630,95,1,0,0,0,631,632,5,3,0,0,632,
-		633,5,53,0,0,633,646,5,16,0,0,634,635,7,1,0,0,635,641,5,53,0,0,636,637,
-		5,23,0,0,637,638,7,1,0,0,638,640,5,53,0,0,639,636,1,0,0,0,640,643,1,0,
-		0,0,641,639,1,0,0,0,641,642,1,0,0,0,642,645,1,0,0,0,643,641,1,0,0,0,644,
-		634,1,0,0,0,645,648,1,0,0,0,646,644,1,0,0,0,646,647,1,0,0,0,647,649,1,
-		0,0,0,648,646,1,0,0,0,649,650,5,17,0,0,650,651,5,18,0,0,651,652,3,2,1,
-		0,652,653,3,110,55,0,653,654,5,19,0,0,654,97,1,0,0,0,655,656,5,53,0,0,
-		656,657,5,53,0,0,657,670,5,16,0,0,658,659,7,1,0,0,659,665,5,53,0,0,660,
-		661,5,23,0,0,661,662,7,1,0,0,662,664,5,53,0,0,663,660,1,0,0,0,664,667,
-		1,0,0,0,665,663,1,0,0,0,665,666,1,0,0,0,666,669,1,0,0,0,667,665,1,0,0,
-		0,668,658,1,0,0,0,669,672,1,0,0,0,670,668,1,0,0,0,670,671,1,0,0,0,671,
-		673,1,0,0,0,672,670,1,0,0,0,673,674,5,17,0,0,674,675,5,18,0,0,675,676,
-		3,2,1,0,676,677,3,112,56,0,677,678,5,19,0,0,678,99,1,0,0,0,679,680,5,15,
-		0,0,680,681,5,22,0,0,681,101,1,0,0,0,682,688,5,15,0,0,683,689,5,48,0,0,
-		684,689,5,53,0,0,685,689,3,40,20,0,686,689,3,46,23,0,687,689,3,50,25,0,
-		688,683,1,0,0,0,688,684,1,0,0,0,688,685,1,0,0,0,688,686,1,0,0,0,688,687,
-		1,0,0,0,689,690,1,0,0,0,690,691,5,22,0,0,691,103,1,0,0,0,692,698,5,15,
-		0,0,693,699,5,51,0,0,694,699,5,53,0,0,695,699,3,42,21,0,696,699,3,48,24,
-		0,697,699,3,52,26,0,698,693,1,0,0,0,698,694,1,0,0,0,698,695,1,0,0,0,698,
-		696,1,0,0,0,698,697,1,0,0,0,699,700,1,0,0,0,700,701,5,22,0,0,701,105,1,
-		0,0,0,702,703,5,15,0,0,703,704,7,12,0,0,704,705,5,22,0,0,705,107,1,0,0,
-		0,706,707,5,15,0,0,707,708,7,13,0,0,708,709,5,22,0,0,709,109,1,0,0,0,710,
-		714,5,15,0,0,711,715,5,50,0,0,712,715,5,53,0,0,713,715,3,58,29,0,714,711,
-		1,0,0,0,714,712,1,0,0,0,714,713,1,0,0,0,715,716,1,0,0,0,716,717,5,22,0,
-		0,717,111,1,0,0,0,718,719,5,15,0,0,719,720,5,53,0,0,720,721,5,22,0,0,721,
-		113,1,0,0,0,65,117,123,137,139,163,171,185,195,205,219,240,245,249,252,
-		264,272,274,282,289,297,302,307,312,317,322,327,333,336,341,347,357,367,
-		371,376,382,402,410,428,432,441,452,457,472,479,481,490,500,505,521,526,
-		545,550,569,574,593,598,617,622,641,646,665,670,688,698,714
+		2,29,7,29,2,30,7,30,1,0,5,0,64,8,0,10,0,12,0,67,9,0,1,0,5,0,70,8,0,10,
+		0,12,0,73,9,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,5,1,87,8,
+		1,10,1,12,1,90,9,1,1,2,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,
+		1,3,3,3,106,8,3,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,3,4,117,8,4,1,4,1,
+		4,1,4,1,4,1,4,3,4,124,8,4,1,4,1,4,1,4,1,4,1,4,3,4,131,8,4,1,4,1,4,1,4,
+		1,4,1,4,3,4,138,8,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,3,4,149,8,4,1,
+		4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,5,4,161,8,4,10,4,12,4,164,9,4,5,
+		4,166,8,4,10,4,12,4,169,9,4,1,4,3,4,172,8,4,3,4,174,8,4,1,5,3,5,177,8,
+		5,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,6,3,6,189,8,6,1,6,1,6,1,6,1,6,
+		1,6,1,6,5,6,197,8,6,10,6,12,6,200,9,6,1,7,1,7,1,7,3,7,205,8,7,1,7,1,7,
+		1,7,3,7,210,8,7,3,7,212,8,7,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,223,
+		8,8,3,8,225,8,8,1,8,1,8,1,8,1,8,1,8,1,8,5,8,233,8,8,10,8,12,8,236,9,8,
+		1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,5,9,253,8,
+		9,10,9,12,9,256,9,9,1,9,1,9,1,9,1,9,1,9,3,9,263,8,9,1,10,1,10,1,10,1,10,
+		1,10,1,10,1,10,1,10,1,11,1,11,3,11,275,8,11,1,12,1,12,1,12,1,12,1,12,1,
+		12,1,12,3,12,284,8,12,1,13,1,13,1,13,1,13,1,13,1,13,1,13,5,13,293,8,13,
+		10,13,12,13,296,9,13,5,13,298,8,13,10,13,12,13,301,9,13,1,13,1,13,1,13,
+		1,13,1,13,1,14,1,14,1,14,1,14,1,14,1,14,1,14,3,14,315,8,14,1,15,1,15,1,
+		15,1,15,1,15,5,15,322,8,15,10,15,12,15,325,9,15,1,15,1,15,1,16,1,16,5,
+		16,331,8,16,10,16,12,16,334,9,16,1,16,1,16,1,16,1,16,1,16,5,16,341,8,16,
+		10,16,12,16,344,9,16,5,16,346,8,16,10,16,12,16,349,9,16,1,16,1,16,1,16,
+		1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,17,5,17,362,8,17,10,17,12,17,365,
+		9,17,5,17,367,8,17,10,17,12,17,370,9,17,1,17,1,17,1,17,1,17,1,17,1,17,
+		1,18,1,18,1,18,1,18,1,18,1,18,1,18,1,18,5,18,386,8,18,10,18,12,18,389,
+		9,18,5,18,391,8,18,10,18,12,18,394,9,18,1,18,1,18,1,18,1,18,1,18,1,18,
+		1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,5,19,410,8,19,10,19,12,19,413,
+		9,19,5,19,415,8,19,10,19,12,19,418,9,19,1,19,1,19,1,19,1,19,1,19,1,19,
+		1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,5,20,434,8,20,10,20,12,20,437,
+		9,20,5,20,439,8,20,10,20,12,20,442,9,20,1,20,1,20,1,20,1,20,1,20,1,20,
+		1,21,1,21,1,21,1,21,1,21,1,21,1,21,1,21,5,21,458,8,21,10,21,12,21,461,
+		9,21,5,21,463,8,21,10,21,12,21,466,9,21,1,21,1,21,1,21,1,21,1,21,1,21,
+		1,22,1,22,1,22,1,22,1,22,1,22,1,22,1,22,5,22,482,8,22,10,22,12,22,485,
+		9,22,5,22,487,8,22,10,22,12,22,490,9,22,1,22,1,22,1,22,1,22,1,22,1,22,
+		1,23,1,23,1,23,1,23,1,23,1,23,1,23,1,23,5,23,506,8,23,10,23,12,23,509,
+		9,23,5,23,511,8,23,10,23,12,23,514,9,23,1,23,1,23,1,23,1,23,1,23,1,23,
+		1,24,1,24,1,24,1,25,1,25,1,25,1,25,3,25,529,8,25,1,25,1,25,1,26,1,26,1,
+		26,1,26,3,26,537,8,26,1,26,1,26,1,27,1,27,1,27,1,27,1,28,1,28,1,28,1,28,
+		1,29,1,29,1,29,1,29,3,29,553,8,29,1,29,1,29,1,30,1,30,1,30,1,30,1,30,0,
+		2,12,16,31,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,
+		44,46,48,50,52,54,56,58,60,0,10,1,0,48,52,1,0,48,53,2,0,3,7,53,53,3,0,
+		48,48,51,51,53,53,1,0,40,42,1,0,38,39,2,0,26,27,30,33,1,0,34,35,2,0,49,
+		49,53,53,1,0,52,53,616,0,65,1,0,0,0,2,88,1,0,0,0,4,91,1,0,0,0,6,105,1,
+		0,0,0,8,173,1,0,0,0,10,176,1,0,0,0,12,188,1,0,0,0,14,211,1,0,0,0,16,224,
+		1,0,0,0,18,237,1,0,0,0,20,264,1,0,0,0,22,274,1,0,0,0,24,283,1,0,0,0,26,
+		285,1,0,0,0,28,314,1,0,0,0,30,316,1,0,0,0,32,332,1,0,0,0,34,353,1,0,0,
+		0,36,377,1,0,0,0,38,401,1,0,0,0,40,425,1,0,0,0,42,449,1,0,0,0,44,473,1,
+		0,0,0,46,497,1,0,0,0,48,521,1,0,0,0,50,524,1,0,0,0,52,532,1,0,0,0,54,540,
+		1,0,0,0,56,544,1,0,0,0,58,548,1,0,0,0,60,556,1,0,0,0,62,64,3,30,15,0,63,
+		62,1,0,0,0,64,67,1,0,0,0,65,63,1,0,0,0,65,66,1,0,0,0,66,71,1,0,0,0,67,
+		65,1,0,0,0,68,70,3,22,11,0,69,68,1,0,0,0,70,73,1,0,0,0,71,69,1,0,0,0,71,
+		72,1,0,0,0,72,74,1,0,0,0,73,71,1,0,0,0,74,75,5,1,0,0,75,76,5,18,0,0,76,
+		77,3,2,1,0,77,78,3,28,14,0,78,79,5,19,0,0,79,1,1,0,0,0,80,87,3,8,4,0,81,
+		87,3,18,9,0,82,87,3,20,10,0,83,87,3,4,2,0,84,87,3,32,16,0,85,87,3,14,7,
+		0,86,80,1,0,0,0,86,81,1,0,0,0,86,82,1,0,0,0,86,83,1,0,0,0,86,84,1,0,0,
+		0,86,85,1,0,0,0,87,90,1,0,0,0,88,86,1,0,0,0,88,89,1,0,0,0,89,3,1,0,0,0,
+		90,88,1,0,0,0,91,92,5,2,0,0,92,93,5,16,0,0,93,94,3,6,3,0,94,95,5,17,0,
+		0,95,96,5,22,0,0,96,5,1,0,0,0,97,106,5,49,0,0,98,106,5,53,0,0,99,106,5,
+		52,0,0,100,106,5,48,0,0,101,106,5,51,0,0,102,106,5,50,0,0,103,106,3,12,
+		6,0,104,106,3,16,8,0,105,97,1,0,0,0,105,98,1,0,0,0,105,99,1,0,0,0,105,
+		100,1,0,0,0,105,101,1,0,0,0,105,102,1,0,0,0,105,103,1,0,0,0,105,104,1,
+		0,0,0,106,7,1,0,0,0,107,108,5,53,0,0,108,109,5,25,0,0,109,110,3,12,6,0,
+		110,111,5,22,0,0,111,174,1,0,0,0,112,113,5,3,0,0,113,116,5,53,0,0,114,
+		115,5,25,0,0,115,117,3,16,8,0,116,114,1,0,0,0,116,117,1,0,0,0,117,118,
+		1,0,0,0,118,174,5,22,0,0,119,120,5,4,0,0,120,123,5,53,0,0,121,122,5,25,
+		0,0,122,124,5,49,0,0,123,121,1,0,0,0,123,124,1,0,0,0,124,125,1,0,0,0,125,
+		174,5,22,0,0,126,127,5,5,0,0,127,130,5,53,0,0,128,129,5,25,0,0,129,131,
+		5,52,0,0,130,128,1,0,0,0,130,131,1,0,0,0,131,132,1,0,0,0,132,174,5,22,
+		0,0,133,134,5,6,0,0,134,137,5,53,0,0,135,136,5,25,0,0,136,138,3,12,6,0,
+		137,135,1,0,0,0,137,138,1,0,0,0,138,139,1,0,0,0,139,174,5,22,0,0,140,141,
+		5,53,0,0,141,142,5,25,0,0,142,143,7,0,0,0,143,174,5,22,0,0,144,145,5,7,
+		0,0,145,148,5,53,0,0,146,147,5,25,0,0,147,149,3,12,6,0,148,146,1,0,0,0,
+		148,149,1,0,0,0,149,150,1,0,0,0,150,174,5,22,0,0,151,152,5,53,0,0,152,
+		171,5,53,0,0,153,154,5,25,0,0,154,155,5,8,0,0,155,156,5,53,0,0,156,167,
+		5,16,0,0,157,162,7,1,0,0,158,159,5,23,0,0,159,161,7,1,0,0,160,158,1,0,
+		0,0,161,164,1,0,0,0,162,160,1,0,0,0,162,163,1,0,0,0,163,166,1,0,0,0,164,
+		162,1,0,0,0,165,157,1,0,0,0,166,169,1,0,0,0,167,165,1,0,0,0,167,168,1,
+		0,0,0,168,170,1,0,0,0,169,167,1,0,0,0,170,172,5,17,0,0,171,153,1,0,0,0,
+		171,172,1,0,0,0,172,174,1,0,0,0,173,107,1,0,0,0,173,112,1,0,0,0,173,119,
+		1,0,0,0,173,126,1,0,0,0,173,133,1,0,0,0,173,140,1,0,0,0,173,144,1,0,0,
+		0,173,151,1,0,0,0,174,9,1,0,0,0,175,177,7,2,0,0,176,175,1,0,0,0,176,177,
+		1,0,0,0,177,178,1,0,0,0,178,179,5,53,0,0,179,180,5,25,0,0,180,181,3,32,
+		16,0,181,11,1,0,0,0,182,183,6,6,-1,0,183,184,5,16,0,0,184,185,3,12,6,0,
+		185,186,5,17,0,0,186,189,1,0,0,0,187,189,7,3,0,0,188,182,1,0,0,0,188,187,
+		1,0,0,0,189,198,1,0,0,0,190,191,10,4,0,0,191,192,7,4,0,0,192,197,3,12,
+		6,5,193,194,10,3,0,0,194,195,7,5,0,0,195,197,3,12,6,4,196,190,1,0,0,0,
+		196,193,1,0,0,0,197,200,1,0,0,0,198,196,1,0,0,0,198,199,1,0,0,0,199,13,
+		1,0,0,0,200,198,1,0,0,0,201,202,5,53,0,0,202,204,5,36,0,0,203,205,5,22,
+		0,0,204,203,1,0,0,0,204,205,1,0,0,0,205,212,1,0,0,0,206,207,5,53,0,0,207,
+		209,5,37,0,0,208,210,5,22,0,0,209,208,1,0,0,0,209,210,1,0,0,0,210,212,
+		1,0,0,0,211,201,1,0,0,0,211,206,1,0,0,0,212,15,1,0,0,0,213,214,6,8,-1,
+		0,214,215,5,28,0,0,215,225,3,16,8,4,216,223,5,51,0,0,217,223,5,48,0,0,
+		218,223,5,53,0,0,219,223,5,50,0,0,220,223,5,53,0,0,221,223,3,12,6,0,222,
+		216,1,0,0,0,222,217,1,0,0,0,222,218,1,0,0,0,222,219,1,0,0,0,222,220,1,
+		0,0,0,222,221,1,0,0,0,223,225,1,0,0,0,224,213,1,0,0,0,224,222,1,0,0,0,
+		225,234,1,0,0,0,226,227,10,3,0,0,227,228,7,6,0,0,228,233,3,16,8,4,229,
+		230,10,2,0,0,230,231,7,7,0,0,231,233,3,16,8,3,232,226,1,0,0,0,232,229,
+		1,0,0,0,233,236,1,0,0,0,234,232,1,0,0,0,234,235,1,0,0,0,235,17,1,0,0,0,
+		236,234,1,0,0,0,237,238,5,9,0,0,238,239,5,16,0,0,239,240,3,16,8,0,240,
+		241,5,17,0,0,241,242,5,18,0,0,242,243,3,2,1,0,243,254,5,19,0,0,244,245,
+		5,10,0,0,245,246,5,16,0,0,246,247,3,16,8,0,247,248,5,17,0,0,248,249,5,
+		18,0,0,249,250,3,2,1,0,250,251,5,19,0,0,251,253,1,0,0,0,252,244,1,0,0,
+		0,253,256,1,0,0,0,254,252,1,0,0,0,254,255,1,0,0,0,255,262,1,0,0,0,256,
+		254,1,0,0,0,257,258,5,11,0,0,258,259,5,18,0,0,259,260,3,2,1,0,260,261,
+		5,19,0,0,261,263,1,0,0,0,262,257,1,0,0,0,262,263,1,0,0,0,263,19,1,0,0,
+		0,264,265,5,12,0,0,265,266,5,16,0,0,266,267,3,16,8,0,267,268,5,17,0,0,
+		268,269,5,18,0,0,269,270,3,2,1,0,270,271,5,19,0,0,271,21,1,0,0,0,272,275,
+		3,24,12,0,273,275,3,26,13,0,274,272,1,0,0,0,274,273,1,0,0,0,275,23,1,0,
+		0,0,276,284,3,34,17,0,277,284,3,36,18,0,278,284,3,38,19,0,279,284,3,40,
+		20,0,280,284,3,42,21,0,281,284,3,44,22,0,282,284,3,46,23,0,283,276,1,0,
+		0,0,283,277,1,0,0,0,283,278,1,0,0,0,283,279,1,0,0,0,283,280,1,0,0,0,283,
+		281,1,0,0,0,283,282,1,0,0,0,284,25,1,0,0,0,285,286,5,53,0,0,286,299,5,
+		16,0,0,287,288,7,2,0,0,288,294,5,53,0,0,289,290,5,23,0,0,290,291,7,2,0,
+		0,291,293,5,53,0,0,292,289,1,0,0,0,293,296,1,0,0,0,294,292,1,0,0,0,294,
+		295,1,0,0,0,295,298,1,0,0,0,296,294,1,0,0,0,297,287,1,0,0,0,298,301,1,
+		0,0,0,299,297,1,0,0,0,299,300,1,0,0,0,300,302,1,0,0,0,301,299,1,0,0,0,
+		302,303,5,17,0,0,303,304,5,18,0,0,304,305,3,2,1,0,305,306,5,19,0,0,306,
+		27,1,0,0,0,307,315,3,48,24,0,308,315,3,50,25,0,309,315,3,52,26,0,310,315,
+		3,54,27,0,311,315,3,56,28,0,312,315,3,58,29,0,313,315,3,60,30,0,314,307,
+		1,0,0,0,314,308,1,0,0,0,314,309,1,0,0,0,314,310,1,0,0,0,314,311,1,0,0,
+		0,314,312,1,0,0,0,314,313,1,0,0,0,315,29,1,0,0,0,316,317,5,13,0,0,317,
+		318,5,53,0,0,318,323,5,18,0,0,319,322,3,8,4,0,320,322,3,22,11,0,321,319,
+		1,0,0,0,321,320,1,0,0,0,322,325,1,0,0,0,323,321,1,0,0,0,323,324,1,0,0,
+		0,324,326,1,0,0,0,325,323,1,0,0,0,326,327,5,19,0,0,327,31,1,0,0,0,328,
+		329,5,53,0,0,329,331,5,24,0,0,330,328,1,0,0,0,331,334,1,0,0,0,332,330,
+		1,0,0,0,332,333,1,0,0,0,333,335,1,0,0,0,334,332,1,0,0,0,335,336,5,53,0,
+		0,336,347,5,16,0,0,337,342,7,1,0,0,338,339,5,23,0,0,339,341,7,1,0,0,340,
+		338,1,0,0,0,341,344,1,0,0,0,342,340,1,0,0,0,342,343,1,0,0,0,343,346,1,
+		0,0,0,344,342,1,0,0,0,345,337,1,0,0,0,346,349,1,0,0,0,347,345,1,0,0,0,
+		347,348,1,0,0,0,348,350,1,0,0,0,349,347,1,0,0,0,350,351,5,17,0,0,351,352,
+		5,22,0,0,352,33,1,0,0,0,353,354,5,14,0,0,354,355,5,53,0,0,355,368,5,16,
+		0,0,356,357,7,2,0,0,357,363,5,53,0,0,358,359,5,23,0,0,359,360,7,2,0,0,
+		360,362,5,53,0,0,361,358,1,0,0,0,362,365,1,0,0,0,363,361,1,0,0,0,363,364,
+		1,0,0,0,364,367,1,0,0,0,365,363,1,0,0,0,366,356,1,0,0,0,367,370,1,0,0,
+		0,368,366,1,0,0,0,368,369,1,0,0,0,369,371,1,0,0,0,370,368,1,0,0,0,371,
+		372,5,17,0,0,372,373,5,18,0,0,373,374,3,2,1,0,374,375,3,48,24,0,375,376,
+		5,19,0,0,376,35,1,0,0,0,377,378,5,6,0,0,378,379,5,53,0,0,379,392,5,16,
+		0,0,380,381,7,2,0,0,381,387,5,53,0,0,382,383,5,23,0,0,383,384,7,2,0,0,
+		384,386,5,53,0,0,385,382,1,0,0,0,386,389,1,0,0,0,387,385,1,0,0,0,387,388,
+		1,0,0,0,388,391,1,0,0,0,389,387,1,0,0,0,390,380,1,0,0,0,391,394,1,0,0,
+		0,392,390,1,0,0,0,392,393,1,0,0,0,393,395,1,0,0,0,394,392,1,0,0,0,395,
+		396,5,17,0,0,396,397,5,18,0,0,397,398,3,2,1,0,398,399,3,50,25,0,399,400,
+		5,19,0,0,400,37,1,0,0,0,401,402,5,7,0,0,402,403,5,53,0,0,403,416,5,16,
+		0,0,404,405,7,2,0,0,405,411,5,53,0,0,406,407,5,23,0,0,407,408,7,2,0,0,
+		408,410,5,53,0,0,409,406,1,0,0,0,410,413,1,0,0,0,411,409,1,0,0,0,411,412,
+		1,0,0,0,412,415,1,0,0,0,413,411,1,0,0,0,414,404,1,0,0,0,415,418,1,0,0,
+		0,416,414,1,0,0,0,416,417,1,0,0,0,417,419,1,0,0,0,418,416,1,0,0,0,419,
+		420,5,17,0,0,420,421,5,18,0,0,421,422,3,2,1,0,422,423,3,52,26,0,423,424,
+		5,19,0,0,424,39,1,0,0,0,425,426,5,4,0,0,426,427,5,53,0,0,427,440,5,16,
+		0,0,428,429,7,2,0,0,429,435,5,53,0,0,430,431,5,23,0,0,431,432,7,2,0,0,
+		432,434,5,53,0,0,433,430,1,0,0,0,434,437,1,0,0,0,435,433,1,0,0,0,435,436,
+		1,0,0,0,436,439,1,0,0,0,437,435,1,0,0,0,438,428,1,0,0,0,439,442,1,0,0,
+		0,440,438,1,0,0,0,440,441,1,0,0,0,441,443,1,0,0,0,442,440,1,0,0,0,443,
+		444,5,17,0,0,444,445,5,18,0,0,445,446,3,2,1,0,446,447,3,54,27,0,447,448,
+		5,19,0,0,448,41,1,0,0,0,449,450,5,5,0,0,450,451,5,53,0,0,451,464,5,16,
+		0,0,452,453,7,2,0,0,453,459,5,53,0,0,454,455,5,23,0,0,455,456,7,2,0,0,
+		456,458,5,53,0,0,457,454,1,0,0,0,458,461,1,0,0,0,459,457,1,0,0,0,459,460,
+		1,0,0,0,460,463,1,0,0,0,461,459,1,0,0,0,462,452,1,0,0,0,463,466,1,0,0,
+		0,464,462,1,0,0,0,464,465,1,0,0,0,465,467,1,0,0,0,466,464,1,0,0,0,467,
+		468,5,17,0,0,468,469,5,18,0,0,469,470,3,2,1,0,470,471,3,56,28,0,471,472,
+		5,19,0,0,472,43,1,0,0,0,473,474,5,3,0,0,474,475,5,53,0,0,475,488,5,16,
+		0,0,476,477,7,2,0,0,477,483,5,53,0,0,478,479,5,23,0,0,479,480,7,2,0,0,
+		480,482,5,53,0,0,481,478,1,0,0,0,482,485,1,0,0,0,483,481,1,0,0,0,483,484,
+		1,0,0,0,484,487,1,0,0,0,485,483,1,0,0,0,486,476,1,0,0,0,487,490,1,0,0,
+		0,488,486,1,0,0,0,488,489,1,0,0,0,489,491,1,0,0,0,490,488,1,0,0,0,491,
+		492,5,17,0,0,492,493,5,18,0,0,493,494,3,2,1,0,494,495,3,58,29,0,495,496,
+		5,19,0,0,496,45,1,0,0,0,497,498,5,53,0,0,498,499,5,53,0,0,499,512,5,16,
+		0,0,500,501,7,2,0,0,501,507,5,53,0,0,502,503,5,23,0,0,503,504,7,2,0,0,
+		504,506,5,53,0,0,505,502,1,0,0,0,506,509,1,0,0,0,507,505,1,0,0,0,507,508,
+		1,0,0,0,508,511,1,0,0,0,509,507,1,0,0,0,510,500,1,0,0,0,511,514,1,0,0,
+		0,512,510,1,0,0,0,512,513,1,0,0,0,513,515,1,0,0,0,514,512,1,0,0,0,515,
+		516,5,17,0,0,516,517,5,18,0,0,517,518,3,2,1,0,518,519,3,60,30,0,519,520,
+		5,19,0,0,520,47,1,0,0,0,521,522,5,15,0,0,522,523,5,22,0,0,523,49,1,0,0,
+		0,524,528,5,15,0,0,525,529,5,48,0,0,526,529,5,53,0,0,527,529,3,12,6,0,
+		528,525,1,0,0,0,528,526,1,0,0,0,528,527,1,0,0,0,529,530,1,0,0,0,530,531,
+		5,22,0,0,531,51,1,0,0,0,532,536,5,15,0,0,533,537,5,51,0,0,534,537,5,53,
+		0,0,535,537,3,12,6,0,536,533,1,0,0,0,536,534,1,0,0,0,536,535,1,0,0,0,537,
+		538,1,0,0,0,538,539,5,22,0,0,539,53,1,0,0,0,540,541,5,15,0,0,541,542,7,
+		8,0,0,542,543,5,22,0,0,543,55,1,0,0,0,544,545,5,15,0,0,545,546,7,9,0,0,
+		546,547,5,22,0,0,547,57,1,0,0,0,548,552,5,15,0,0,549,553,5,50,0,0,550,
+		553,5,53,0,0,551,553,3,16,8,0,552,549,1,0,0,0,552,550,1,0,0,0,552,551,
+		1,0,0,0,553,554,1,0,0,0,554,555,5,22,0,0,555,59,1,0,0,0,556,557,5,15,0,
+		0,557,558,5,53,0,0,558,559,5,22,0,0,559,61,1,0,0,0,54,65,71,86,88,105,
+		116,123,130,137,148,162,167,171,173,176,188,196,198,204,209,211,222,224,
+		232,234,254,262,274,283,294,299,314,321,323,332,342,347,363,368,387,392,
+		411,416,435,440,459,464,483,488,507,512,528,536,552
 	};
 
 	public static readonly ATN _ATN =

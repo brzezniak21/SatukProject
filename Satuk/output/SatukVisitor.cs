@@ -51,105 +51,113 @@ public interface ISatukVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitDisplay([NotNull] SatukParser.DisplayContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="SatukParser.assignment"/>.
+	/// Visit a parse tree produced by the <c>displayString</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAssignment([NotNull] SatukParser.AssignmentContext context);
+	Result VisitDisplayString([NotNull] SatukParser.DisplayStringContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_variable</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_variable([NotNull] SatukParser.Print_variableContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_char</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_char([NotNull] SatukParser.Print_charContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_int</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_int([NotNull] SatukParser.Print_intContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_float</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_float([NotNull] SatukParser.Print_floatContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_bool</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_bool([NotNull] SatukParser.Print_boolContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_arithmetics</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_arithmetics([NotNull] SatukParser.Print_arithmeticsContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>print_logicalInstructions</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrint_logicalInstructions([NotNull] SatukParser.Print_logicalInstructionsContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>ArAss</c>
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitArAss([NotNull] SatukParser.ArAssContext context);
 	/// <summary>
 	/// Visit a parse tree produced by the <c>boolAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitBoolAss([NotNull] SatukParser.BoolAssContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>boolLogAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool_logical"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBoolLogAss([NotNull] SatukParser.BoolLogAssContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>boolDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool_dynamic"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBoolDynAss([NotNull] SatukParser.BoolDynAssContext context);
-	/// <summary>
 	/// Visit a parse tree produced by the <c>stringAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_string"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitStringAss([NotNull] SatukParser.StringAssContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>stringDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_string_dynamic"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitStringDynAss([NotNull] SatukParser.StringDynAssContext context);
-	/// <summary>
 	/// Visit a parse tree produced by the <c>charAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_char"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitCharAss([NotNull] SatukParser.CharAssContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>charDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_char_dynamic"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCharDynAss([NotNull] SatukParser.CharDynAssContext context);
-	/// <summary>
 	/// Visit a parse tree produced by the <c>intConstAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_constant"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitIntConstAss([NotNull] SatukParser.IntConstAssContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>intArAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_ar"/>.
+	/// Visit a parse tree produced by the <c>varDynAss</c>
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitIntArAss([NotNull] SatukParser.IntArAssContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>intDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_dynamic"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIntDynAss([NotNull] SatukParser.IntDynAssContext context);
+	Result VisitVarDynAss([NotNull] SatukParser.VarDynAssContext context);
 	/// <summary>
 	/// Visit a parse tree produced by the <c>floatConstAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_constant"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitFloatConstAss([NotNull] SatukParser.FloatConstAssContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>floatDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_dynamic"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFloatDynAss([NotNull] SatukParser.FloatDynAssContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>floatArAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_ar"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFloatArAss([NotNull] SatukParser.FloatArAssContext context);
-	/// <summary>
 	/// Visit a parse tree produced by the <c>classAss</c>
-	/// labeled alternative in <see cref="SatukParser.assignment_class"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
@@ -182,101 +190,40 @@ public interface ISatukVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitOpArithm([NotNull] SatukParser.OpArithmContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>opArithmInt</c>
-	/// labeled alternative in <see cref="SatukParser.arithmetics_int"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitOpArithmInt([NotNull] SatukParser.OpArithmIntContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>opArithmFloat</c>
-	/// labeled alternative in <see cref="SatukParser.arithmetics_float"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitOpArithmFloat([NotNull] SatukParser.OpArithmFloatContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="SatukParser.mutators"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMutators([NotNull] SatukParser.MutatorsContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>incInt</c>
-	/// labeled alternative in <see cref="SatukParser.int_inc"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIncInt([NotNull] SatukParser.IncIntContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>incFloat</c>
-	/// labeled alternative in <see cref="SatukParser.float_inc"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIncFloat([NotNull] SatukParser.IncFloatContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>decInt</c>
-	/// labeled alternative in <see cref="SatukParser.int_dec"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitDecInt([NotNull] SatukParser.DecIntContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>decFloat</c>
-	/// labeled alternative in <see cref="SatukParser.float_dec"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitDecFloat([NotNull] SatukParser.DecFloatContext context);
-	/// <summary>
 	/// Visit a parse tree produced by the <c>incVar</c>
-	/// labeled alternative in <see cref="SatukParser.variable_inc"/>.
+	/// labeled alternative in <see cref="SatukParser.mutators"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitIncVar([NotNull] SatukParser.IncVarContext context);
 	/// <summary>
 	/// Visit a parse tree produced by the <c>decVar</c>
-	/// labeled alternative in <see cref="SatukParser.variable_dec"/>.
+	/// labeled alternative in <see cref="SatukParser.mutators"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitDecVar([NotNull] SatukParser.DecVarContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="SatukParser.logical_instructions"/>.
+	/// Visit a parse tree produced by the <c>notLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLogical_instructions([NotNull] SatukParser.Logical_instructionsContext context);
+	Result VisitNotLogical([NotNull] SatukParser.NotLogicalContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>logBool</c>
-	/// labeled alternative in <see cref="SatukParser.logical_bool"/>.
+	/// Visit a parse tree produced by the <c>opLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLogBool([NotNull] SatukParser.LogBoolContext context);
+	Result VisitOpLogical([NotNull] SatukParser.OpLogicalContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>logNum</c>
-	/// labeled alternative in <see cref="SatukParser.logical_numeric"/>.
+	/// Visit a parse tree produced by the <c>varLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLogNum([NotNull] SatukParser.LogNumContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>logText</c>
-	/// labeled alternative in <see cref="SatukParser.logical_text"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitLogText([NotNull] SatukParser.LogTextContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>logVar</c>
-	/// labeled alternative in <see cref="SatukParser.logical_var"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitLogVar([NotNull] SatukParser.LogVarContext context);
+	Result VisitVarLogical([NotNull] SatukParser.VarLogicalContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="SatukParser.if_statement"/>.
 	/// </summary>
@@ -289,12 +236,6 @@ public interface ISatukVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitLoop([NotNull] SatukParser.LoopContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="SatukParser.print_content"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitPrint_content([NotNull] SatukParser.Print_contentContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="SatukParser.functions"/>.
 	/// </summary>

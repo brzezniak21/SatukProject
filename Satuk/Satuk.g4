@@ -4,7 +4,7 @@ grammar Satuk;
 
 program: class* functions* 'program' LBRACE prog return RBRACE;
 
-prog:   (assignment | if_statement | loop | print | execute_function)*;
+prog:   (assignment | if_statement | loop | print | execute_function | mutators)*;
 
 LPAREN     : '(';
 RPAREN     : ')';
@@ -41,7 +41,7 @@ DIV_ASSIGN     : '/=';
 WS: [ \t\r\n]+ -> skip;
 
 INT     : [0-9]+;
-STRING  : '"'[a-zA-Z0-9_ ]+'"';
+STRING  : '"'[a-zA-Z0-9_+-/*%>=<|&!?: ]+'"';
 BOOL    : 'true' | 'false';
 FLOAT   : ('0' ',' [0-9]+ | [1-9][0-9]* ',' [0-9]*) | ('0' ',' [0-9]*);
 CHAR    : '\''[a-zA-Z0-9]'\'';
@@ -49,35 +49,28 @@ VARIABLE : [a-zA-Z]+[0-9]*;
 
 print: 'display' LPAREN result=print_content RPAREN SEMICOLON #display;
 
-assignment: (assign_char | assign_string | assign_float_constant | assign_bool | assign_int_ar | assign_int_constant | assign_float_ar | assign_bool_logical | assignment_class | assign_bool_dynamic | assign_char_dynamic | assign_float_dynamic | assign_int_dynamic | assign_string_dynamic | assignment_function) SEMICOLON;
+print_content 
 
-assign_bool: 'bool' VARIABLE (ASSIGN BOOL)? #boolAss;
+    : STRING #displayString
+    | VARIABLE #print_variable
+    | CHAR #print_char
+    | INT #print_int
+    | FLOAT #print_float
+    | BOOL #print_bool 
+    | arithmetics #print_arithmetics
+    | logical_instructions #print_logicalInstructions;
 
-assign_bool_logical: VARIABLE ASSIGN expr=logical_instructions #boolLogAss;
+assignment
+        :VARIABLE ASSIGN expr=arithmetics SEMICOLON #ArAss
 
-assign_bool_dynamic: VARIABLE ASSIGN BOOL #boolDynAss;
-
-assign_string: 'string' VARIABLE (ASSIGN STRING)? #stringAss;
-
-assign_string_dynamic: VARIABLE ASSIGN STRING #stringDynAss;
-
-assign_char: 'char' VARIABLE (ASSIGN CHAR)? #charAss;
-
-assign_char_dynamic: VARIABLE ASSIGN CHAR #charDynAss;
-
-assign_int_constant: 'int' VARIABLE (ASSIGN INT)? #intConstAss;
-
-assign_int_ar: VARIABLE ASSIGN expr=arithmetics_int #intArAss;
-
-assign_int_dynamic: VARIABLE ASSIGN INT #intDynAss;
-
-assign_float_constant: 'float' VARIABLE (ASSIGN FLOAT)? #floatConstAss;
-
-assign_float_dynamic: VARIABLE ASSIGN FLOAT #floatDynAss;
-
-assign_float_ar: VARIABLE ASSIGN expr=arithmetics_float #floatArAss;
-
-assignment_class: VARIABLE VARIABLE (ASSIGN 'new' VARIABLE LPAREN ((VARIABLE | FLOAT | INT | STRING | CHAR | BOOL) (COMMA (VARIABLE | FLOAT | INT | STRING | CHAR | BOOL))*)* RPAREN)? #classAss;
+        | 'bool' VARIABLE (ASSIGN expr=logical_instructions)? SEMICOLON #boolAss
+ //       | VARIABLE ASSIGN expr=logical_instructions SEMICOLON #boolLogAss
+        | 'string' VARIABLE (ASSIGN STRING)? SEMICOLON #stringAss
+        | 'char' VARIABLE (ASSIGN CHAR)? SEMICOLON #charAss
+        | 'int' VARIABLE (ASSIGN expr=arithmetics)? SEMICOLON #intConstAss
+        | VARIABLE ASSIGN (INT | FLOAT | BOOL | STRING | CHAR)  SEMICOLON #varDynAss
+        | 'float' VARIABLE (ASSIGN expr=arithmetics)? SEMICOLON #floatConstAss
+        | VARIABLE VARIABLE (ASSIGN 'new' VARIABLE LPAREN ((VARIABLE | FLOAT | INT | STRING | CHAR | BOOL) (COMMA (VARIABLE | FLOAT | INT | STRING | CHAR | BOOL))*)* RPAREN)? #classAss;
 
 
 assignment_function: ('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE)? VARIABLE ASSIGN execute_function;
@@ -91,39 +84,22 @@ arithmetics
         | LPAREN arithmetics RPAREN     #parenArithm
         | (INT | FLOAT | VARIABLE) #numberArithm;
 
-arithmetics_int: (INT | VARIABLE) (( ADD | SUB | MUL | DIV | MOD | ADD_ASSIGN | SUB_ASSIGN | MUL_ASSIGN | DIV_ASSIGN) (INT | VARIABLE))+ #opArithmInt;
-
-arithmetics_float: (FLOAT | VARIABLE) (( ADD | SUB | MUL | DIV | MOD | ADD_ASSIGN | SUB_ASSIGN | MUL_ASSIGN | DIV_ASSIGN) (FLOAT | VARIABLE))+ #opArithmFloat;
-
-mutators: int_inc | float_inc | int_dec | float_dec | variable_inc | variable_dec;
-
-int_inc: INT INC SEMICOLON? #incInt;
-float_inc: FLOAT INC SEMICOLON? #incFloat;
-int_dec: INT DEC SEMICOLON? #decInt;
-float_dec: FLOAT DEC SEMICOLON? #decFloat;
-variable_inc: VARIABLE INC SEMICOLON? #incVar;
-variable_dec: VARIABLE DEC SEMICOLON? #decVar;
+mutators
+    : VARIABLE INC SEMICOLON? #incVar
+    | VARIABLE DEC SEMICOLON? #decVar;
 
 
-logical_instructions: logical_bool | logical_numeric | logical_text | logical_var;
-
-logical_bool: NOT? BOOL ((NOTEQUAL | EQUAL) BOOL)? ((OR | AND) logical_instructions)* #logBool;
-
-logical_numeric: (FLOAT | INT | VARIABLE) (LE | GE | LT | GT | EQUAL | NOTEQUAL) (FLOAT | INT | VARIABLE)  ((OR | AND) logical_instructions)* #logNum;
-
-logical_text: (STRING | CHAR) (EQUAL | NOTEQUAL) (STRING | CHAR) ((OR | AND) logical_instructions)* #logText;
-
-logical_var: NOT? VARIABLE ((LE | GE | LT | GT | EQUAL | NOTEQUAL) VARIABLE)? ((OR | AND) logical_instructions)* #logVar;
+logical_instructions
+    : NOT expr=logical_instructions #notLogical
+    | left = logical_instructions op = (LE | GE | LT | GT | EQUAL | NOTEQUAL) right = logical_instructions #opLogical
+    | left = logical_instructions op = (OR | AND) right = logical_instructions #opLogical
+    | (FLOAT | INT | VARIABLE | BOOL | VARIABLE | arithmetics) #varLogical;
 
 
 
 if_statement: 'if' LPAREN logical_instructions RPAREN LBRACE prog RBRACE ('else if' LPAREN logical_instructions RPAREN LBRACE prog RBRACE)* ('else' LBRACE prog RBRACE)?;
 
 loop: 'loop' LPAREN logical_instructions RPAREN LBRACE prog RBRACE;
-
-//print: 'display' LPAREN result=print_content RPAREN SEMICOLON #display;
-
-print_content : (STRING  | VARIABLE | CHAR | INT | FLOAT | BOOL | arithmetics | logical_instructions);
 
 
 functions: function | constructor;
@@ -139,6 +115,7 @@ class: 'class' VARIABLE LBRACE (assignment | functions)* RBRACE;
 
 execute_function: (VARIABLE DOT)* VARIABLE LPAREN ((VARIABLE | FLOAT | INT | STRING | CHAR | BOOL) (COMMA (VARIABLE | FLOAT | INT | STRING | CHAR | BOOL))*)* RPAREN SEMICOLON;
 
+
 void_function: 'void' VARIABLE LPAREN (('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE (COMMA ('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE)*)* RPAREN LBRACE prog void_return RBRACE #funcVoid;
 int_function: 'int' VARIABLE LPAREN (('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE (COMMA ('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE)*)* RPAREN LBRACE prog int_return RBRACE #funcInt;
 float_function: 'float' VARIABLE LPAREN (('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE (COMMA ('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE)*)* RPAREN LBRACE prog float_return RBRACE #funcFloat;
@@ -148,8 +125,8 @@ bool_function: 'bool' VARIABLE LPAREN (('string' | 'char' | 'int' | 'float' | 'b
 variable_function: VARIABLE VARIABLE LPAREN (('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE (COMMA ('string' | 'char' | 'int' | 'float' | 'bool' | VARIABLE) VARIABLE)*)* RPAREN LBRACE prog variable_return RBRACE #funcVar;
 
 void_return: 'return' SEMICOLON;
-int_return: 'return' (INT | VARIABLE | arithmetics_int | int_inc | int_dec) SEMICOLON #retInt;
-float_return: 'return' (FLOAT | VARIABLE | arithmetics_float | float_inc | float_dec)SEMICOLON #retFloat;
+int_return: 'return' (INT | VARIABLE | arithmetics ) SEMICOLON #retInt;
+float_return: 'return' (FLOAT | VARIABLE | arithmetics )SEMICOLON #retFloat;
 string_return: 'return' (STRING | VARIABLE) SEMICOLON #retString;
 char_return: 'return' (CHAR | VARIABLE) SEMICOLON #retChar;
 bool_return: 'return' (BOOL | VARIABLE | logical_instructions) SEMICOLON #retBool;

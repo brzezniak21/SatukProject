@@ -74,209 +74,225 @@ public partial class SatukBaseListener : ISatukListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDisplay([NotNull] SatukParser.DisplayContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="SatukParser.assignment"/>.
+	/// Enter a parse tree produced by the <c>displayString</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterAssignment([NotNull] SatukParser.AssignmentContext context) { }
+	public virtual void EnterDisplayString([NotNull] SatukParser.DisplayStringContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="SatukParser.assignment"/>.
+	/// Exit a parse tree produced by the <c>displayString</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitAssignment([NotNull] SatukParser.AssignmentContext context) { }
+	public virtual void ExitDisplayString([NotNull] SatukParser.DisplayStringContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_variable</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_variable([NotNull] SatukParser.Print_variableContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_variable</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_variable([NotNull] SatukParser.Print_variableContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_char</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_char([NotNull] SatukParser.Print_charContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_char</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_char([NotNull] SatukParser.Print_charContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_int</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_int([NotNull] SatukParser.Print_intContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_int</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_int([NotNull] SatukParser.Print_intContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_float</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_float([NotNull] SatukParser.Print_floatContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_float</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_float([NotNull] SatukParser.Print_floatContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_bool</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_bool([NotNull] SatukParser.Print_boolContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_bool</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_bool([NotNull] SatukParser.Print_boolContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_arithmetics</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_arithmetics([NotNull] SatukParser.Print_arithmeticsContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_arithmetics</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_arithmetics([NotNull] SatukParser.Print_arithmeticsContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>print_logicalInstructions</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterPrint_logicalInstructions([NotNull] SatukParser.Print_logicalInstructionsContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>print_logicalInstructions</c>
+	/// labeled alternative in <see cref="SatukParser.print_content"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitPrint_logicalInstructions([NotNull] SatukParser.Print_logicalInstructionsContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>ArAss</c>
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterArAss([NotNull] SatukParser.ArAssContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>ArAss</c>
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitArAss([NotNull] SatukParser.ArAssContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>boolAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterBoolAss([NotNull] SatukParser.BoolAssContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>boolAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitBoolAss([NotNull] SatukParser.BoolAssContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>boolLogAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool_logical"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterBoolLogAss([NotNull] SatukParser.BoolLogAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>boolLogAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool_logical"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitBoolLogAss([NotNull] SatukParser.BoolLogAssContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>boolDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterBoolDynAss([NotNull] SatukParser.BoolDynAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>boolDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_bool_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitBoolDynAss([NotNull] SatukParser.BoolDynAssContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by the <c>stringAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_string"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterStringAss([NotNull] SatukParser.StringAssContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>stringAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_string"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitStringAss([NotNull] SatukParser.StringAssContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>stringDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_string_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterStringDynAss([NotNull] SatukParser.StringDynAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>stringDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_string_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitStringDynAss([NotNull] SatukParser.StringDynAssContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by the <c>charAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_char"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterCharAss([NotNull] SatukParser.CharAssContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>charAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_char"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitCharAss([NotNull] SatukParser.CharAssContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>charDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_char_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterCharDynAss([NotNull] SatukParser.CharDynAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>charDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_char_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitCharDynAss([NotNull] SatukParser.CharDynAssContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by the <c>intConstAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_constant"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterIntConstAss([NotNull] SatukParser.IntConstAssContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>intConstAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_constant"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIntConstAss([NotNull] SatukParser.IntConstAssContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>intArAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_ar"/>.
+	/// Enter a parse tree produced by the <c>varDynAss</c>
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIntArAss([NotNull] SatukParser.IntArAssContext context) { }
+	public virtual void EnterVarDynAss([NotNull] SatukParser.VarDynAssContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>intArAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_ar"/>.
+	/// Exit a parse tree produced by the <c>varDynAss</c>
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIntArAss([NotNull] SatukParser.IntArAssContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>intDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIntDynAss([NotNull] SatukParser.IntDynAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>intDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_int_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIntDynAss([NotNull] SatukParser.IntDynAssContext context) { }
+	public virtual void ExitVarDynAss([NotNull] SatukParser.VarDynAssContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>floatConstAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_constant"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterFloatConstAss([NotNull] SatukParser.FloatConstAssContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>floatConstAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_constant"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitFloatConstAss([NotNull] SatukParser.FloatConstAssContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>floatDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterFloatDynAss([NotNull] SatukParser.FloatDynAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>floatDynAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_dynamic"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitFloatDynAss([NotNull] SatukParser.FloatDynAssContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>floatArAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_ar"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterFloatArAss([NotNull] SatukParser.FloatArAssContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>floatArAss</c>
-	/// labeled alternative in <see cref="SatukParser.assign_float_ar"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitFloatArAss([NotNull] SatukParser.FloatArAssContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by the <c>classAss</c>
-	/// labeled alternative in <see cref="SatukParser.assignment_class"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterClassAss([NotNull] SatukParser.ClassAssContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>classAss</c>
-	/// labeled alternative in <see cref="SatukParser.assignment_class"/>.
+	/// labeled alternative in <see cref="SatukParser.assignment"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -336,197 +352,75 @@ public partial class SatukBaseListener : ISatukListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitOpArithm([NotNull] SatukParser.OpArithmContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>opArithmInt</c>
-	/// labeled alternative in <see cref="SatukParser.arithmetics_int"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterOpArithmInt([NotNull] SatukParser.OpArithmIntContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>opArithmInt</c>
-	/// labeled alternative in <see cref="SatukParser.arithmetics_int"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitOpArithmInt([NotNull] SatukParser.OpArithmIntContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>opArithmFloat</c>
-	/// labeled alternative in <see cref="SatukParser.arithmetics_float"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterOpArithmFloat([NotNull] SatukParser.OpArithmFloatContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>opArithmFloat</c>
-	/// labeled alternative in <see cref="SatukParser.arithmetics_float"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitOpArithmFloat([NotNull] SatukParser.OpArithmFloatContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="SatukParser.mutators"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterMutators([NotNull] SatukParser.MutatorsContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="SatukParser.mutators"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitMutators([NotNull] SatukParser.MutatorsContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>incInt</c>
-	/// labeled alternative in <see cref="SatukParser.int_inc"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIncInt([NotNull] SatukParser.IncIntContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>incInt</c>
-	/// labeled alternative in <see cref="SatukParser.int_inc"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIncInt([NotNull] SatukParser.IncIntContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>incFloat</c>
-	/// labeled alternative in <see cref="SatukParser.float_inc"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIncFloat([NotNull] SatukParser.IncFloatContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>incFloat</c>
-	/// labeled alternative in <see cref="SatukParser.float_inc"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIncFloat([NotNull] SatukParser.IncFloatContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>decInt</c>
-	/// labeled alternative in <see cref="SatukParser.int_dec"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDecInt([NotNull] SatukParser.DecIntContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>decInt</c>
-	/// labeled alternative in <see cref="SatukParser.int_dec"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDecInt([NotNull] SatukParser.DecIntContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>decFloat</c>
-	/// labeled alternative in <see cref="SatukParser.float_dec"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDecFloat([NotNull] SatukParser.DecFloatContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>decFloat</c>
-	/// labeled alternative in <see cref="SatukParser.float_dec"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDecFloat([NotNull] SatukParser.DecFloatContext context) { }
-	/// <summary>
 	/// Enter a parse tree produced by the <c>incVar</c>
-	/// labeled alternative in <see cref="SatukParser.variable_inc"/>.
+	/// labeled alternative in <see cref="SatukParser.mutators"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterIncVar([NotNull] SatukParser.IncVarContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>incVar</c>
-	/// labeled alternative in <see cref="SatukParser.variable_inc"/>.
+	/// labeled alternative in <see cref="SatukParser.mutators"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIncVar([NotNull] SatukParser.IncVarContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>decVar</c>
-	/// labeled alternative in <see cref="SatukParser.variable_dec"/>.
+	/// labeled alternative in <see cref="SatukParser.mutators"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterDecVar([NotNull] SatukParser.DecVarContext context) { }
 	/// <summary>
 	/// Exit a parse tree produced by the <c>decVar</c>
-	/// labeled alternative in <see cref="SatukParser.variable_dec"/>.
+	/// labeled alternative in <see cref="SatukParser.mutators"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDecVar([NotNull] SatukParser.DecVarContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="SatukParser.logical_instructions"/>.
+	/// Enter a parse tree produced by the <c>notLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogical_instructions([NotNull] SatukParser.Logical_instructionsContext context) { }
+	public virtual void EnterNotLogical([NotNull] SatukParser.NotLogicalContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="SatukParser.logical_instructions"/>.
+	/// Exit a parse tree produced by the <c>notLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogical_instructions([NotNull] SatukParser.Logical_instructionsContext context) { }
+	public virtual void ExitNotLogical([NotNull] SatukParser.NotLogicalContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>logBool</c>
-	/// labeled alternative in <see cref="SatukParser.logical_bool"/>.
+	/// Enter a parse tree produced by the <c>opLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogBool([NotNull] SatukParser.LogBoolContext context) { }
+	public virtual void EnterOpLogical([NotNull] SatukParser.OpLogicalContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>logBool</c>
-	/// labeled alternative in <see cref="SatukParser.logical_bool"/>.
+	/// Exit a parse tree produced by the <c>opLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogBool([NotNull] SatukParser.LogBoolContext context) { }
+	public virtual void ExitOpLogical([NotNull] SatukParser.OpLogicalContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by the <c>logNum</c>
-	/// labeled alternative in <see cref="SatukParser.logical_numeric"/>.
+	/// Enter a parse tree produced by the <c>varLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogNum([NotNull] SatukParser.LogNumContext context) { }
+	public virtual void EnterVarLogical([NotNull] SatukParser.VarLogicalContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>logNum</c>
-	/// labeled alternative in <see cref="SatukParser.logical_numeric"/>.
+	/// Exit a parse tree produced by the <c>varLogical</c>
+	/// labeled alternative in <see cref="SatukParser.logical_instructions"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogNum([NotNull] SatukParser.LogNumContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>logText</c>
-	/// labeled alternative in <see cref="SatukParser.logical_text"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogText([NotNull] SatukParser.LogTextContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>logText</c>
-	/// labeled alternative in <see cref="SatukParser.logical_text"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogText([NotNull] SatukParser.LogTextContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by the <c>logVar</c>
-	/// labeled alternative in <see cref="SatukParser.logical_var"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLogVar([NotNull] SatukParser.LogVarContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by the <c>logVar</c>
-	/// labeled alternative in <see cref="SatukParser.logical_var"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLogVar([NotNull] SatukParser.LogVarContext context) { }
+	public virtual void ExitVarLogical([NotNull] SatukParser.VarLogicalContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="SatukParser.if_statement"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -551,18 +445,6 @@ public partial class SatukBaseListener : ISatukListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitLoop([NotNull] SatukParser.LoopContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="SatukParser.print_content"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterPrint_content([NotNull] SatukParser.Print_contentContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="SatukParser.print_content"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitPrint_content([NotNull] SatukParser.Print_contentContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="SatukParser.functions"/>.
 	/// <para>The default implementation does nothing.</para>

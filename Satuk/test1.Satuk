@@ -1,7 +1,10 @@
 program 
 {
-    display("wynik dzialania to");
-    display(2+3*4);
-    return;
+bool x = false;
+display(x);
+float i = 1;
+i--;
+display(i);
+return;
 }
     
