@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using Antlr4.Runtime.Tree;
 
 namespace Satuk.output;
@@ -186,7 +186,7 @@ public class Visitor : SatukBaseVisitor<object>
             variables.Add(context.VARIABLE().GetText(), context.GetText().Contains('=') ? Visit(context.expr) : false);
         }
 
-        return null;
+        return context.VARIABLE().GetText();
     }
 
     public override object VisitVarLogical(SatukParser.VarLogicalContext context)
@@ -533,5 +533,101 @@ public class Visitor : SatukBaseVisitor<object>
                 throw new ArgumentException($"Cant decrement type {variableTypes[var]}");
         else 
             throw new ArgumentException($"No variable named {var}");
+    }
+
+    public override object VisitIfStatement(SatukParser.IfStatementContext context)
+    {
+        var ifcondition = Visit(context.ifcondition);
+
+        bool condition;
+
+        if(ifcondition is string v)
+        {
+            condition = (bool)variables[v];
+        }
+        else{
+            condition = (bool)ifcondition;
+        }
+        
+        bool temp;
+
+        if (condition)
+        {
+            Visit(context.ifprog);
+            return true;
+        }
+        else if(context.elif is not null){
+            temp = (bool)Visit(context.elif);
+            if(temp){
+                return true;
+            }
+        }
+        if (context.@else is not null){
+            return Visit(context.@else);
+        }
+        return false;
+    }
+    public override object VisitElifStatement(SatukParser.ElifStatementContext context)
+    {
+        var ifcondition = Visit(context.elifcondition);
+
+        bool condition;
+
+        if(ifcondition is string v)
+        {
+            condition = (bool)variables[v];
+        }
+        else{
+            condition = (bool)ifcondition;
+        }
+
+
+        if (condition)
+        {
+            Visit(context.elifprog);
+            return true;
+        }
+        else if(context.elif is not null){
+            return Visit(context.elif);
+        }
+        else{
+            return false;
+        }
+        
+    }
+    public override object VisitElseStatement(SatukParser.ElseStatementContext context)
+    {
+        Visit(context.elseprog);
+        return true;
+    }
+
+    public override object VisitLoopStatement(SatukParser.LoopStatementContext context)
+    {
+        
+        while (true)
+        {
+            var loopcondition = Visit(context.loopcondition);
+
+            bool condition;
+
+            if(loopcondition is string v)
+            {
+                condition = (bool)variables[v];
+            }
+            else{
+                condition = (bool)loopcondition;
+            }
+            
+            if (condition)
+            {
+                Visit(context.loopprog);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        return true;
     }
 }
