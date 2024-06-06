@@ -1,10 +1,26 @@
 program 
 {
-bool x = false;
-display(x);
-float i = 1;
-i--;
-display(i);
-return;
+    bool statement = true;
+    if(statement){
+        display("it is true");
+    }
+    
+    statement=false;
+    string falseStatement = "it is false";
+    if(!statement){
+        display(falseStatement);
+    }
+    
+    int a = 5+6*3;
+    display(a);
+    
+    display(" ");
+    int x = 0;
+    loop(x<10){
+        display(x);
+        
+        x++;
+    }
+    
 }
     
